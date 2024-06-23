@@ -2,6 +2,8 @@
 
 <html lang="en" class="no-js">
 
+<!-- password pattern  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" -->
+<!--  email pattern   pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" -->
 
 <head>
 	<!-- Basic need -->
@@ -25,6 +27,12 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<style>
+        input.lowercase {
+            text-transform: lowercase;
+        }
+</style>
+
 </head>
 <body>
 <!--preloading-->
@@ -41,19 +49,18 @@
     <div class="login-content">
         <a href="#" class="close">x</a>
         <h3>Login</h3>
-        <form method="post" action="http://127.0.0.1:8000/login/" id="loginform">
-			{% csrf_token %}
+        <div id="loginform">
         	<div class="row">
         		 <label for="username">
                     Username:
-                    <input type="text" name="username" id="username" placeholder=" " pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+                    <input type="text" name="username" id="login_username" placeholder=" " required="required" />
                 </label>
         	</div>
            
             <div class="row">
             	<label for="password">
                     Password:
-                    <input type="password" name="password" id="password" placeholder=" " pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="password" name="password" id="login_password" placeholder=" "  required="required" />
                 </label>
             </div>
             <div class="row">
@@ -65,9 +72,9 @@
             	</div>
             </div>
            <div class="row">
-           	 <button type="submit">Login</button>
+           	 <button type="button" onclick="user_login(this);">Login</button>
            </div>
-        </form>
+        </div>
         <div class="row">
         	<p>Or via social</p>
             <div class="social-btn-2">
@@ -83,37 +90,36 @@
     <div class="login-content">
         <a href="#" class="close">x</a>
         <h3>sign up</h3>
-        <form method="post" action="http://busterhtml.mbkip3ms9u-e92498n216kr.p.temp-site.link/signup.php" id="signupform">
-			{% csrf_token %}
+        <div  id="signupform">
             <div class="row">
                  <label for="username-2">
                     Username:
-                    <input type="text" name="username" id="username-2" placeholder=" " pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+                    <input type="text" class="lowercase" name="username" id="username" placeholder=" "  required="required" />
                 </label>
             </div>
            
             <div class="row">
                 <label for="email-2">
                     your email:
-                    <input type="password" name="email" id="email-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="text" class="lowercase" name="email" id="email" placeholder=""  required="required" />
                 </label>
             </div>
              <div class="row">
                 <label for="password-2">
                     Password:
-                    <input type="password" name="password" id="password-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="text" class="lowercase" name="password" id="password" placeholder=""  required="required" />
                 </label>
             </div>
              <div class="row">
                 <label for="repassword-2">
                     re-type Password:
-                    <input type="password" name="password" id="repassword-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="text" class="lowercase" name="password" id="repassword" placeholder=""  required="required" />
                 </label>
             </div>
            <div class="row">
-             <button type="submit">sign up</button>
+             <button type="button" onclick="signup(this);">sign up</button>
            </div>
-        </form>
+        </div>
     </div>
 </div>
 <!--end of signup form popup-->
@@ -304,86 +310,97 @@
 </html>
 
 <script>
-	$(document).ready(function() {
-		function getCookie(name) {
-			let cookieValue = null;
-			if (document.cookie && document.cookie !== '') {
-				const cookies = document.cookie.split(';');
-				for (let i = 0; i < cookies.length; i++) {
-					const cookie = cookies[i].trim();
-					if (cookie.substring(0, name.length + 1) === (name + '=')) {
-						cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-						break;
-					}
-				}
-			}
-			return cookieValue;
-		}
-	
-		const csrftoken = getCookie('csrftoken');
-	
-		function onloginformSubmit(event) {
-			event.preventDefault();
-			const valueInArray = $(this).serializeArray();
-			const body = {};
-	
-			valueInArray.reduce((body, e) => {
-				body[e.name] = e.value;
-				return body;
-			}, body);
-	
-			console.log(body);
-	
-			$.ajax({
-				method: "POST",
-				url: "/login/",
-				data: body,
-				beforeSend: function(xhr) {
-					xhr.setRequestHeader('X-CSRFToken', csrftoken);
-				}
-			})
-			.done(function(response) {
-				console.log(response);
-			})
-			.fail(function(response) {
-				console.log(response);
-			});
-		}
-	
-		$("#loginform").submit(onloginformSubmit);
-	});
-	
-	
-	
-	
 
-    function onsignupformSubmission(event) {
-        event.preventDefault();
-        const signupformValueArray$(this).serializeArray()
-		const body = {}
-		signupformValueArray.foreach(element=> {
-			body[element.name] = element.value
-		})
-		console.log({ body})
-
-		$.ajax({
-			method: "POST",
-			 url: "/signup",
-			 data: body
-		})
-		.done(function(response){
-			console.log(response)
-			event.target.reset()
-			alert("Signup Saved")
-		})
-		.fail(function(response){
-			console.log(response)
-		})
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.startsWith(name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
     }
+    return cookieValue;
+}
 
-    $("#loginform").submit(onloginformSubmit);
+async function signup(event){
+	username = $('#username').val().toLowerCase();
+	email = $('#email').val().toLowerCase();
+	password=  $('#password').val().toLowerCase();
+	repassword = $('#repassword').val().toLowerCase();
+	const csrftoken = getCookie('csrftoken'); // Function to get CSRF token from cookies
+	if(password != repassword){
+		alert('your password is not match');
+		return;
+	}
+	var data = {
+		"username": username,
+		"password": password,
+		"email": email
+	};
+	const response = await fetch('/users/register/', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-CSRFToken': csrftoken
+		},
+		body: JSON.stringify(data)
+	});
+	if (response.ok) {
+            const jsonResponse = await response.json();
+            console.log('Registration successful:', jsonResponse);
+			// this will close the signup form
+			var overlay = $(".overlay");
+			overlay.removeClass("openform");
+			// this will open the sign form 
+			var overlay = $(".overlay");
+			var loginct = $( "#login-content" );
+			loginct.parents(overlay).addClass("openform");
 
-    $("#signupform").submit(onsignupformSubmission);
+        } else {
+            const errorResponse = await response.json();
+			// console.error('Registration failed:', errorResponse);
+            alert(errorResponse[0]);
+        }
+
+}
+
+
+async function user_login(event){
+	username = $('#login_username').val().toLowerCase();
+	password=  $('#login_password').val().toLowerCase();
+	const csrftoken = getCookie('csrftoken'); // Function to get CSRF token from cookies
+	var data = {
+		"username": username,
+		"password": password,
+		"email": email
+	};
+	const response = await fetch('/users/login/', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-CSRFToken': csrftoken
+		},
+		body: JSON.stringify(data)
+	});
+	if (response.ok) {
+            const jsonResponse = await response.json();
+            console.log('Login successful:', jsonResponse);
+			// this will close the login form
+			var overlay = $(".overlay");
+			overlay.removeClass("openform");
+			alert('Login is successfully');
+			location.reload();  // Reload the page on successful login
+
+        } else {
+            const errorResponse = await response.json();
+            console.error('Registration failed:', errorResponse);
+        }
+
+}
 
 
 </script>
