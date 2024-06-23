@@ -2,10 +2,10 @@
 
 <html lang="en" class="no-js">
 
-<!-- Mirrored from busterhtml.mbkip3ms9u-e92498n216kr.p.temp-site.link/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Jun 2024 09:03:16 GMT -->
+
 <head>
 	<!-- Basic need -->
-	<title>Open Pediatrics</title>
+	<title>Movie Recommendation</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -21,6 +21,9 @@
 	<!-- CSS files -->
 	<link rel="stylesheet" href="{% static 'css/plugins.css' %}">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 <body>
@@ -38,18 +41,19 @@
     <div class="login-content">
         <a href="#" class="close">x</a>
         <h3>Login</h3>
-        <form method="post" action="">
+        <form method="post" action="http://127.0.0.1:8000/login/" id="loginform">
+			{% csrf_token %}
         	<div class="row">
         		 <label for="username">
                     Username:
-                    <input type="text" name="username" id="username" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+                    <input type="text" name="username" id="username" placeholder=" " pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
                 </label>
         	</div>
            
             <div class="row">
             	<label for="password">
                     Password:
-                    <input type="password" name="password" id="password" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="password" name="password" id="password" placeholder=" " pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
                 </label>
             </div>
             <div class="row">
@@ -79,11 +83,12 @@
     <div class="login-content">
         <a href="#" class="close">x</a>
         <h3>sign up</h3>
-        <form method="post" action="http://busterhtml.mbkip3ms9u-e92498n216kr.p.temp-site.link/signup.php">
+        <form method="post" action="http://busterhtml.mbkip3ms9u-e92498n216kr.p.temp-site.link/signup.php" id="signupform">
+			{% csrf_token %}
             <div class="row">
                  <label for="username-2">
                     Username:
-                    <input type="text" name="username" id="username-2" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+                    <input type="text" name="username" id="username-2" placeholder=" " pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
                 </label>
             </div>
            
@@ -127,7 +132,7 @@
 							<span></span>
 						</div>
 				    </div>
-				    <a href="index-2.html"><img class="logo" src="images/logo1.png" alt="" width="119" height="58"></a>
+				    <a href="index-2.html"><img class="logo" src="{% static 'images/logo1.png' %}" alt="" width="119" height="58"></a>
 			    </div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
@@ -235,10 +240,10 @@
 	<div class="container">
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1">
-				 <a href="index-2.html"><img class="logo" src="images/logo1.png" alt=""></a>
-				 <p>5th Avenue st, manhattan<br>
-				New York, NY 10001</p>
-				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
+				 <a href="index-2.html"><img class="logo" src="{% static 'images/logo1.png' %}" alt=""></a>
+				 <p>QFX<br>
+				Bharatpur, Chitwan Nepal</p>
+				<p>Call us: <a href="#">(+05) 98 98 989898</a></p>
 			</div>
 			<div class="flex-child-ft item2">
 				<h4>Resources</h4>
@@ -280,7 +285,7 @@
 	</div>
 	<div class="ft-copyright">
 		<div class="ft-left">
-			<p>© 2017 Blockbuster. All Rights Reserved. Designed by leehari.</p>
+			<p>© 2024 Blockbuster. All Rights Reserved. Designed by Swostika.</p>
 		</div>
 		<div class="backtotop">
 			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
@@ -297,3 +302,88 @@
 
 <!-- Mirrored from busterhtml.mbkip3ms9u-e92498n216kr.p.temp-site.link/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Jun 2024 09:03:55 GMT -->
 </html>
+
+<script>
+	$(document).ready(function() {
+		function getCookie(name) {
+			let cookieValue = null;
+			if (document.cookie && document.cookie !== '') {
+				const cookies = document.cookie.split(';');
+				for (let i = 0; i < cookies.length; i++) {
+					const cookie = cookies[i].trim();
+					if (cookie.substring(0, name.length + 1) === (name + '=')) {
+						cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+						break;
+					}
+				}
+			}
+			return cookieValue;
+		}
+	
+		const csrftoken = getCookie('csrftoken');
+	
+		function onloginformSubmit(event) {
+			event.preventDefault();
+			const valueInArray = $(this).serializeArray();
+			const body = {};
+	
+			valueInArray.reduce((body, e) => {
+				body[e.name] = e.value;
+				return body;
+			}, body);
+	
+			console.log(body);
+	
+			$.ajax({
+				method: "POST",
+				url: "/login/",
+				data: body,
+				beforeSend: function(xhr) {
+					xhr.setRequestHeader('X-CSRFToken', csrftoken);
+				}
+			})
+			.done(function(response) {
+				console.log(response);
+			})
+			.fail(function(response) {
+				console.log(response);
+			});
+		}
+	
+		$("#loginform").submit(onloginformSubmit);
+	});
+	
+	
+	
+	
+
+    function onsignupformSubmission(event) {
+        event.preventDefault();
+        const signupformValueArray$(this).serializeArray()
+		const body = {}
+		signupformValueArray.foreach(element=> {
+			body[element.name] = element.value
+		})
+		console.log({ body})
+
+		$.ajax({
+			method: "POST",
+			 url: "/signup",
+			 data: body
+		})
+		.done(function(response){
+			console.log(response)
+			event.target.reset()
+			alert("Signup Saved")
+		})
+		.fail(function(response){
+			console.log(response)
+		})
+    }
+
+    $("#loginform").submit(onloginformSubmit);
+
+    $("#signupform").submit(onsignupformSubmission);
+
+
+</script>
