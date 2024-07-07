@@ -25,10 +25,17 @@ class UserViewSet(viewsets.GenericViewSet):
             user = User.objects.get(username=username) # select * from user table where username=username
             if check_password(password, user.password): # user.password
                 serializer = self.get_serializer(user)
+                # create user session after login 
+                request.session['user'] = user.username
+                request.session['password'] = password
                 return Response(serializer.data, status=status.HTTP_200_OK)
             else:
                 return Response({'detail': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
         except User.DoesNotExist:
             return Response({'detail': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
 
-
+    @action(detail=False, methods=['post'], url_path='logout')
+    def logout(self, request):
+        # delete session 
+        del request.session['user']
+        return Response({'message':'logout successfully'})

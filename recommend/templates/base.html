@@ -218,8 +218,13 @@
 							</ul>
 						</li>                
 						<li><a href="#">Help</a></li>
+						{% if user_session %}
+						<li class="logout" onclick="logout(this);"><a href="#">LOGOUT</a></li>
+						<li class="btn users"><a href="#">{{user_session}}</a></li>
+						{% else %}
 						<li class="loginLink"><a href="#">LOG In</a></li>
 						<li class="btn signupLink"><a href="#">sign up</a></li>
+						{% endif %}
 					</ul>
 				</div>
 			<!-- /.navbar-collapse -->
@@ -400,6 +405,22 @@ async function user_login(event){
             console.error('Registration failed:', errorResponse);
         }
 
+}
+
+async function logout(event){
+	const csrftoken = getCookie('csrftoken');
+	const response = await fetch('/users/logout/', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-CSRFToken': csrftoken
+		},
+		body: JSON.stringify({})
+	});
+	alert('Logout is successfully');
+	location.reload();  // Reload the page on successful login
+
+	
 }
 
 

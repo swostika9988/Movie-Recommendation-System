@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-wcfplkljr_sj74&muvdp$%mu6e+er+%af%9%vv9j@5&l=(pmwe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+'''
+themovieidmb tokens
 
+api key = 93fca947d3f803ead56395bbba121f2e
+api access key =  eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5M2ZjYTk0N2QzZjgwM2VhZDU2Mzk1YmJiYTEyMWYyZSIsIm5iZiI6MTcxOTU4MDM0MC4xOTg1OTEsInN1YiI6IjY2N2QzY2VjYTVjNDA3ZDMxMzExZjI2MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6eJz4ZfHdsrJP9DCfXIazbwqyfSl9rOgfj4Yi2CRW1w
+
+'''
 
 ALLOWED_HOSTS = []
 
@@ -66,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'recommend.context_processor.get_user',
             ],
         },
     },

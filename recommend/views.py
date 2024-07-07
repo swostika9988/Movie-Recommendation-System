@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login as auth_login
-from .models import User
+from .models import User,Movies,Genres
 from django.forms.models import model_to_dict
 
 # Create your views here.
@@ -9,6 +9,8 @@ from django.forms.models import model_to_dict
 
 def index(request):
     template_name = 'index.html'
+    
+    
     return render(request,template_name)
 
 def login(request):
