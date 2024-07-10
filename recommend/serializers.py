@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
-from .models import User,Movies,Genres
+from .models import User,Movies,Genres,Trendingmovie
 
 
 '''
@@ -41,7 +41,18 @@ class MovieSerializer(serializers.ModelSerializer):
         movie.genres.set(genres_data)
         return movie
 
+class TrendingSerializer(serializers.ModelSerializer):
+    genres = serializers.PrimaryKeyRelatedField(queryset=Genres.objects.all(), many=True, allow_empty=True, required=False)
 
+    class Meta:
+        model = Trendingmovie
+        fields = '__all__'
+    
+    def create(self, validated_data):
+        genres_data = validated_data.pop('genres', [])
+        movie = Trendingmovie.objects.create(**validated_data)
+        movie.genres.set(genres_data)
+        return Trendingmovie
     
     
     

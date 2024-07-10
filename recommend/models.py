@@ -62,14 +62,29 @@ class Movies(DateTimeModel):
     def __str__(self) -> str:
         return f'{self.title}'
     
+class Trendingmovie(DateTimeModel):
+    title = models.CharField(max_length=100)
+    poster_url = models.CharField(max_length=300,null=True,blank=True)
+    trailer_url = models.CharField(max_length=300,null=True,blank=True)
+    actors = models.CharField(max_length=300,null=True,blank=True)
+    release_date = models.DateField(null=True,blank=True)
+    rating = models.FloatField(default=0)
+    poster_path = models.CharField(max_length=300,null=True,blank=True)
+    adult = models.BooleanField(default=False)
+    budget = models.FloatField(default=0)
+    homepage = models.CharField(max_length=300,null=True,blank=True)
+    imdb_id = models.CharField(max_length=50, null=True,blank=True)
+    popularity = models.FloatField(default=0)
+    revenue = models.FloatField(default=0)
+    runtime = models.IntegerField(default=0)
+    status = models.CharField(max_length=20,null=True,blank=True)
+    tagline = models.CharField(max_length=200,null=True,blank=True)
+    vote_count = models.FloatField(default=0)
+    vote_average = models.FloatField(default=0)
+    genres = models.ManyToManyField(Genres,related_name='trendingmovie')
+    tag = models.CharField(choices=MOVIE_TAG,default='normal',max_length=30)
     
+    def __str__(self) -> str:
+        return f'{self.title}'
+        
     
-    
-    
-    
-    
-    
-
-    
-
-
