@@ -3,15 +3,22 @@ from django.http import JsonResponse
 from django.contrib.auth import authenticate, login as auth_login
 from .models import User,Movies,Genres
 from django.forms.models import model_to_dict
+from django.db.models import Q
 
 # Create your views here.
 
 
 def index(request):
     template_name = 'index.html'
+    movie_list = Movies.objects.exclude(Q(poster_url__isnull=True) | Q(poster_url='')).filter(tag='trending').order_by('-release_date')
+    # get all record of movies having trailer_url
+    # find the section of trailer in index.html
+    # use foor loop to list all the trailers in traier section of index.html
     
-    
-    return render(request,template_name)
+    context = {
+        'movie_lists': movie_list[:15], # 15
+    }
+    return render(request,template_name,context)
 
 def login(request):
     if request.method == 'POST':
