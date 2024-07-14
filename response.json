@@ -1,5 +1,27 @@
 [
     {
+        "backdrop_path": "/dn3gbDpXPSwC6saMJOHkCiFA9jn.jpg",
+        "id": 974262,
+        "title": "Descendants: The Rise of Red",
+        "original_title": "Descendants: The Rise of Red",
+        "overview": "After the Queen of Hearts incites a coup on Auradon, her rebellious daughter Red and Cinderella's perfectionist daughter Chloe join forces and travel back in time to try to undo the traumatic event that set Red's mother down her villainous path.",
+        "poster_path": "/AvH81EPDP9q0GXhTjQhEUrxHWN5.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            14,
+            12,
+            10751,
+            35
+        ],
+        "popularity": 332.457,
+        "release_date": "2024-07-11",
+        "video": false,
+        "vote_average": 7.5,
+        "vote_count": 69
+    },
+    {
         "backdrop_path": "/fqv8v6AycXKsivp1T5yKtLbGXce.jpg",
         "id": 653346,
         "title": "Kingdom of the Planet of the Apes",
@@ -14,14 +36,14 @@
             12,
             28
         ],
-        "popularity": 2336.136,
+        "popularity": 2421.298,
         "release_date": "2024-05-08",
         "video": false,
-        "vote_average": 6.9,
-        "vote_count": 1337
+        "vote_average": 7.077,
+        "vote_count": 1736
     },
     {
-        "backdrop_path": "/7CZxmKqNyct1GpYI9LfZfXa0WBm.jpg",
+        "backdrop_path": "/Akv9GlCCMrzcDkVz4ad8MdLl9DK.jpg",
         "id": 748783,
         "title": "The Garfield Movie",
         "original_title": "The Garfield Movie",
@@ -36,74 +58,73 @@
             10751,
             12
         ],
-        "popularity": 566.146,
+        "popularity": 3044.868,
         "release_date": "2024-04-30",
         "video": false,
-        "vote_average": 6.8,
-        "vote_count": 202
+        "vote_average": 7.063,
+        "vote_count": 366
     },
     {
-        "backdrop_path": "/rrwt0u1rW685u9bJ9ougg5HJEHC.jpg",
-        "id": 280180,
-        "title": "Beverly Hills Cop: Axel F",
-        "original_title": "Beverly Hills Cop: Axel F",
-        "overview": "Forty years after his unforgettable first case in Beverly Hills, Detroit cop Axel Foley returns to do what he does best: solve crimes and cause chaos.",
-        "poster_path": "/zszRKfzjM5jltiq8rk6rasKVpUv.jpg",
+        "backdrop_path": "/bVigVS3LVotEK4GsBlGOagkjPEc.jpg",
+        "id": 1008409,
+        "title": "The Bikeriders",
+        "original_title": "The Bikeriders",
+        "overview": "After a chance encounter, headstrong Kathy is drawn to Benny, member of Midwestern motorcycle club the Vandals. As the club transforms into a dangerous underworld of violence, Benny must choose between Kathy and his loyalty to the club.",
+        "poster_path": "/qTb6sSRt8Pw96JTan8ezU2xO0FU.jpg",
         "media_type": "movie",
         "adult": false,
         "original_language": "en",
         "genre_ids": [
-            28,
-            35,
-            80
+            80,
+            18
         ],
-        "popularity": 854.785,
-        "release_date": "2024-06-20",
+        "popularity": 345.802,
+        "release_date": "2024-06-19",
         "video": false,
-        "vote_average": 6.992,
-        "vote_count": 357
+        "vote_average": 7.159,
+        "vote_count": 252
     },
     {
-        "backdrop_path": "/jiGoKuVsKzF3isEY1MEDR90Eh1l.jpg",
-        "id": 1019411,
-        "title": "Space Cadet",
-        "original_title": "Space Cadet",
-        "overview": "Tiffany \"Rex\" Simpson has always dreamed of going to space, and her \"doctored\" application lands her in NASA's ultra-competitive astronaut training program. In over her head, can this Florida girl rely on her quick wits, moxie and determination to get through training and into the cosmos before she blows her cover?",
-        "poster_path": "/7rda0SRuIGA8BDC8FTYHAOyXaRj.jpg",
+        "backdrop_path": "/c8KlUfYC5442nkG1Zyaygfui5Q9.jpg",
+        "id": 1039868,
+        "title": "Vanished into the Night",
+        "original_title": "Svaniti nella notte",
+        "overview": "A father, immersed in a difficult divorce process, embarks on a dangerous mission when his children disappear from their isolated country house.",
+        "poster_path": "/f83MF5KVFRs5zuFCPlb6UQV1Yo9.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "it",
+        "genre_ids": [
+            53,
+            9648,
+            18
+        ],
+        "popularity": 104.878,
+        "release_date": "2024-07-10",
+        "video": false,
+        "vote_average": 4.875,
+        "vote_count": 28
+    },
+    {
+        "backdrop_path": "/3Mm2KDkOoQV8u0O5wKUkN1EOhgo.jpg",
+        "id": 1213742,
+        "title": "Tyler Perry's Divorce in the Black",
+        "original_title": "Tyler Perry's Divorce in the Black",
+        "overview": "Ava, a young bank professional is devastated when her husband Dallas abandons a marriage she is determined to fight for until fate intervenes, revealing Dallas' wicked deeds that have trashed their marriage, and once upon a time sabotaged Ava's destiny to be loved by her true soulmate.",
+        "poster_path": "/d5X03SA51Ezd02iF9BCjWXC9X9F.jpg",
         "media_type": "movie",
         "adult": false,
         "original_language": "en",
         "genre_ids": [
-            35,
-            10749
+            18,
+            53,
+            9648
         ],
-        "popularity": 404.445,
-        "release_date": "2024-07-04",
+        "popularity": 139.854,
+        "release_date": "2024-07-11",
         "video": false,
-        "vote_average": 5.3,
-        "vote_count": 55
-    },
-    {
-        "backdrop_path": "/fDmci71SMkfZM8RnCuXJVDPaSdE.jpg",
-        "id": 519182,
-        "title": "Despicable Me 4",
-        "original_title": "Despicable Me 4",
-        "overview": "Gru and Lucy and their girls \u2014 Margo, Edith and Agnes \u2014 welcome a new member to the Gru family, Gru Jr., who is intent on tormenting his dad. Meanwhile, Gru faces a new nemesis in Maxime Le Mal and his femme fatale girlfriend Valentina, forcing the family to go on the run.",
-        "poster_path": "/wWba3TaojhK7NdycRhoQpsG0FaH.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            16,
-            10751,
-            35,
-            28
-        ],
-        "popularity": 4081.225,
-        "release_date": "2024-06-20",
-        "video": false,
-        "vote_average": 7.911,
-        "vote_count": 140
+        "vote_average": 6.133,
+        "vote_count": 15
     },
     {
         "backdrop_path": "/wNAhuOZ3Zf84jCIlrcI6JhgmY5q.jpg",
@@ -120,14 +141,117 @@
             12,
             878
         ],
-        "popularity": 3481.529,
+        "popularity": 2425.404,
         "release_date": "2024-05-22",
         "video": false,
-        "vote_average": 7.695,
-        "vote_count": 1900
+        "vote_average": 7.664,
+        "vote_count": 2079
     },
     {
-        "backdrop_path": "/xg27NrXi7VXCGUr7MG75UqLl6Vg.jpg",
+        "backdrop_path": "/Avtx5jsdPuDa091jvx2Lye3ygke.jpg",
+        "id": 1226578,
+        "title": "Longlegs",
+        "original_title": "Longlegs",
+        "overview": "In pursuit of a notorious serial killer, a rookie FBI agent with a mysterious past must solve a series of occult clues to end his terrifying killing spree.",
+        "poster_path": "/7PFc431SEiHbsMjrkF1VAfFlPn3.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            80,
+            27,
+            53
+        ],
+        "popularity": 275.011,
+        "release_date": "2024-07-10",
+        "video": false,
+        "vote_average": 7.2,
+        "vote_count": 33
+    },
+    {
+        "backdrop_path": "/rShMNq8ElzAxgO2BfwBzPO9NnLU.jpg",
+        "id": 1172648,
+        "title": "Blame the Game",
+        "original_title": "Spieleabend",
+        "overview": "Pia and Jan have just fallen in love and arranged to meet Pia's friends for a game night. Jan meets Pia's friends for the first time and is under pressure to make the perfect first impression. When Pia's ex-boyfriend shows up and even Jan's buddy's tips can't save anything, everything is at stake: the relationship, the friendship, and the definition of truth.",
+        "poster_path": "/d0UeupV6kpfDhb5Gx2RclQdxa3W.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "de",
+        "genre_ids": [
+            35,
+            10749
+        ],
+        "popularity": 25.165,
+        "release_date": "2024-07-03",
+        "video": false,
+        "vote_average": 5.682,
+        "vote_count": 11
+    },
+    {
+        "backdrop_path": "/7aPrv2HFssWcOtpig5G3HEVk3uS.jpg",
+        "id": 718821,
+        "title": "Twisters",
+        "original_title": "Twisters",
+        "overview": "As storm season intensifies, the paths of former storm chaser Kate Carter and reckless social-media superstar Tyler Owens collide when terrifying phenomena never seen before are unleashed. The pair and their competing teams find themselves squarely in the paths of multiple storm systems converging over central Oklahoma in the fight of their lives.",
+        "poster_path": "/g7yg6jJj4Z377j5h6S3MBRmjQ7U.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            28,
+            53,
+            12
+        ],
+        "popularity": 452.46,
+        "release_date": "2024-07-10",
+        "video": false,
+        "vote_average": 8.069,
+        "vote_count": 29
+    },
+    {
+        "backdrop_path": "/tqSg1hHiSWhHAhnjDhhevaFGsP0.jpg",
+        "id": 1066262,
+        "title": "The Convert",
+        "original_title": "The Convert",
+        "overview": "Munro, a soldier turned lay preacher, comes to New Zealand to minister to the first British colonists, but he is converted by the powerful chief Maianui to serve a different purpose.",
+        "poster_path": "/e5ZqqPlhKstzB4geibpZh38w7Pq.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            28,
+            18
+        ],
+        "popularity": 55.927,
+        "release_date": "2024-03-14",
+        "video": false,
+        "vote_average": 6.9,
+        "vote_count": 8
+    },
+    {
+        "backdrop_path": "/rrwt0u1rW685u9bJ9ougg5HJEHC.jpg",
+        "id": 280180,
+        "title": "Beverly Hills Cop: Axel F",
+        "original_title": "Beverly Hills Cop: Axel F",
+        "overview": "Forty years after his unforgettable first case in Beverly Hills, Detroit cop Axel Foley returns to do what he does best: solve crimes and cause chaos.",
+        "poster_path": "/zszRKfzjM5jltiq8rk6rasKVpUv.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            28,
+            35,
+            80
+        ],
+        "popularity": 1849.639,
+        "release_date": "2024-06-20",
+        "video": false,
+        "vote_average": 6.912,
+        "vote_count": 514
+    },
+    {
+        "backdrop_path": "/stKGOm8UyhuLPR9sZLjs5AkmncA.jpg",
         "id": 1022789,
         "title": "Inside Out 2",
         "original_title": "Inside Out 2",
@@ -143,160 +267,53 @@
             35,
             18
         ],
-        "popularity": 10615.361,
+        "popularity": 7707.064,
         "release_date": "2024-06-11",
         "video": false,
-        "vote_average": 7.715,
-        "vote_count": 1515
+        "vote_average": 7.687,
+        "vote_count": 1744
     },
     {
-        "backdrop_path": "/5Aks5cCqHG8xFLoUSLsfGdVfIC.jpg",
-        "id": 1086747,
-        "title": "The Watchers",
-        "original_title": "The Watchers",
-        "overview": "A young artist gets stranded in an extensive, immaculate forest in western Ireland, where, after finding shelter, she becomes trapped alongside three strangers, stalked by mysterious creatures each night.",
-        "poster_path": "/vZVEUPychdvZLrTNwWErr9xZFmu.jpg",
+        "backdrop_path": "/fDmci71SMkfZM8RnCuXJVDPaSdE.jpg",
+        "id": 519182,
+        "title": "Despicable Me 4",
+        "original_title": "Despicable Me 4",
+        "overview": "Gru and Lucy and their girls \u2014 Margo, Edith and Agnes \u2014 welcome a new member to the Gru family, Gru Jr., who is intent on tormenting his dad. Meanwhile, Gru faces a new nemesis in Maxime Le Mal and his femme fatale girlfriend Valentina, forcing the family to go on the run.",
+        "poster_path": "/3w84hCFJATpiCO5g8hpdWVPBbmq.jpg",
         "media_type": "movie",
         "adult": false,
         "original_language": "en",
         "genre_ids": [
-            14,
-            9648,
-            53,
-            27
-        ],
-        "popularity": 855.806,
-        "release_date": "2024-06-06",
-        "video": false,
-        "vote_average": 6.6,
-        "vote_count": 421
-    },
-    {
-        "backdrop_path": "/ybn3jCia5XBD0ZgEM07gcUPuRNh.jpg",
-        "id": 508883,
-        "title": "The Boy and the Heron",
-        "original_title": "\u541b\u305f\u3061\u306f\u3069\u3046\u751f\u304d\u308b\u304b",
-        "overview": "While the Second World War rages, the teenage Mahito, haunted by his mother's tragic death, is relocated from Tokyo to the serene rural home of his new stepmother Natsuko, a woman who bears a striking resemblance to the boy's mother. As he tries to adjust, this strange new world grows even stranger following the appearance of a persistent gray heron, who perplexes and bedevils Mahito, dubbing him the \"long-awaited one.\"",
-        "poster_path": "/f4oZTcfGrVTXKTWg157AwikXqmP.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "ja",
-        "genre_ids": [
             16,
-            12,
-            14
-        ],
-        "popularity": 289.88,
-        "release_date": "2023-07-14",
-        "video": false,
-        "vote_average": 7.494,
-        "vote_count": 1405
-    },
-    {
-        "backdrop_path": "/r488XPGouCdLA4HSU4L8pVfmQke.jpg",
-        "id": 913001,
-        "title": "The Imaginary",
-        "original_title": "\u5c4b\u6839\u88cf\u306e\u30e9\u30b8\u30e3\u30fc",
-        "overview": "Amanda and her imaginary friend Rudger go on thrilling make-believe adventures. But when Rudger finds himself alone, he faces a mysterious threat.",
-        "poster_path": "/xGImONYZnE2Wxc7N99JAifREs5Z.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "ja",
-        "genre_ids": [
-            16,
-            12,
-            18,
             10751,
-            14
+            35,
+            28
         ],
-        "popularity": 65.768,
-        "release_date": "2023-12-15",
+        "popularity": 5914.148,
+        "release_date": "2024-06-20",
         "video": false,
-        "vote_average": 7.35,
-        "vote_count": 10
+        "vote_average": 7.508,
+        "vote_count": 239
     },
     {
-        "backdrop_path": "/cqf3o3UrL7icGN0cTd1w7Fx0C38.jpg",
-        "id": 1008409,
-        "title": "The Bikeriders",
-        "original_title": "The Bikeriders",
-        "overview": "After a chance encounter, headstrong Kathy is drawn to Benny, member of Midwestern motorcycle club the Vandals. As the club transforms into a dangerous underworld of violence, Benny must choose between Kathy and his loyalty to the club.",
-        "poster_path": "/9ocVEG3GMOrMGLWINf6RHS4rnJM.jpg",
+        "backdrop_path": "/ncTtBRGnohOCMKfVuu3AfzaL1xE.jpg",
+        "id": 822119,
+        "title": "Captain America: Brave New World",
+        "original_title": "Captain America: Brave New World",
+        "overview": "After meeting with newly elected U.S. President Thaddeus Ross, Sam finds himself in the middle of an international incident. He must discover the reason behind a nefarious global plot before the true mastermind has the entire world seeing red.",
+        "poster_path": "/jmobYdUXrbj1g5QFWjeomOk2Noz.jpg",
         "media_type": "movie",
         "adult": false,
         "original_language": "en",
         "genre_ids": [
-            80,
-            18
+            28,
+            878
         ],
-        "popularity": 108.135,
-        "release_date": "2024-06-19",
+        "popularity": 140.286,
+        "release_date": "2025-02-12",
         "video": false,
-        "vote_average": 7.3,
-        "vote_count": 169
-    },
-    {
-        "backdrop_path": "/viKEEaaCaZ0hZ2nGuvIEozlLooL.jpg",
-        "id": 1023922,
-        "title": "MaXXXine",
-        "original_title": "MaXXXine",
-        "overview": "In 1980s Hollywood, adult film star and aspiring actress Maxine Minx finally gets her big break. But as a mysterious killer stalks the starlets of Hollywood, a trail of blood threatens to reveal her sinister past.",
-        "poster_path": "/ArvoFK6nlouZRxYmtIOUzKIrg90.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            27,
-            80,
-            9648
-        ],
-        "popularity": 225.079,
-        "release_date": "2024-07-04",
-        "video": false,
-        "vote_average": 7.5,
-        "vote_count": 33
-    },
-    {
-        "backdrop_path": "/6XjMwQTvnICBz6TguiDKkDVHvgS.jpg",
-        "id": 762441,
-        "title": "A Quiet Place:\u00a0Day One",
-        "original_title": "A Quiet Place:\u00a0Day One",
-        "overview": "As New York City is invaded by alien creatures who hunt by sound, a woman named Sam fights to survive.",
-        "poster_path": "/yrpPYKijwdMHyTGIOd1iK1h0Xno.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            27,
-            878,
-            53
-        ],
-        "popularity": 913.154,
-        "release_date": "2024-06-26",
-        "video": false,
-        "vote_average": 6.9,
-        "vote_count": 326
-    },
-    {
-        "backdrop_path": "/TGsfNWkASegCfAn6ED1b08a9O6.jpg",
-        "id": 1125311,
-        "title": "Imaginary",
-        "original_title": "Imaginary",
-        "overview": "When Jessica moves back into her childhood home with her family, her youngest stepdaughter Alice develops an eerie attachment to a stuffed bear named Chauncey she finds in the basement. Alice starts playing games with Chauncey that begin playful and become increasingly sinister. As Alice\u2019s behavior becomes more and more concerning, Jessica intervenes only to realize Chauncey is much more than the stuffed toy bear she believed him to be.",
-        "poster_path": "/9u6HEtZJdZDjPGGJq6YEuhPnoan.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            27,
-            9648,
-            53
-        ],
-        "popularity": 164.06,
-        "release_date": "2024-03-06",
-        "video": false,
-        "vote_average": 6.158,
-        "vote_count": 376
+        "vote_average": 0.0,
+        "vote_count": 0
     },
     {
         "backdrop_path": "/dvBCdCohwWbsP5qAaglOXagDMtk.jpg",
@@ -313,32 +330,11 @@
             28,
             35
         ],
-        "popularity": 452.141,
+        "popularity": 461.433,
         "release_date": "2024-07-24",
         "video": false,
         "vote_average": 0.0,
         "vote_count": 0
-    },
-    {
-        "backdrop_path": "/upk042Tms2EBfIzJf13OtOej0sd.jpg",
-        "id": 929590,
-        "title": "Civil War",
-        "original_title": "Civil War",
-        "overview": "In the near future, a group of war journalists attempt to survive while reporting the truth as the United States stands on the brink of civil war.",
-        "poster_path": "/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            10752,
-            28,
-            18
-        ],
-        "popularity": 972.812,
-        "release_date": "2024-04-10",
-        "video": false,
-        "vote_average": 7.001,
-        "vote_count": 1831
     },
     {
         "backdrop_path": "/8xMR5w9qfpwhTJzjjvfj2ywvIF3.jpg",
@@ -354,73 +350,72 @@
             35,
             10749
         ],
-        "popularity": 143.57,
-        "release_date": "2024-07-04",
+        "popularity": 180.126,
+        "release_date": "2024-07-06",
         "video": false,
-        "vote_average": 6.7,
-        "vote_count": 7
+        "vote_average": 7.477,
+        "vote_count": 43
     },
     {
-        "backdrop_path": "/adAJDB2Au3x5ve2YyWaEYy4EUw.jpg",
-        "id": 1191610,
-        "title": "Goyo",
-        "original_title": "Goyo",
-        "overview": "A young autistic museum guide lives by a strict routine \u2014 until he falls in love with his coworker and must confront a whirlwind of new, intense emotions.",
-        "poster_path": "/fCjC1RRbEJUpDjM55RNUMXQen0b.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "es",
-        "genre_ids": [
-            18,
-            10749,
-            35
-        ],
-        "popularity": 39.424,
-        "release_date": "2024-06-27",
-        "video": false,
-        "vote_average": 6.4,
-        "vote_count": 9
-    },
-    {
-        "backdrop_path": "/7aPrv2HFssWcOtpig5G3HEVk3uS.jpg",
-        "id": 718821,
-        "title": "Twisters",
-        "original_title": "Twisters",
-        "overview": "As storm season intensifies, the paths of former storm chaser Kate Carter and reckless social-media superstar Tyler Owens collide when terrifying phenomena never seen before are unleashed. The pair and their competing teams find themselves squarely in the paths of multiple storm systems converging over central Oklahoma in the fight of their lives.",
-        "poster_path": "/pjnD08FlMAIXsfOLKQbvmO0f0MD.jpg",
+        "backdrop_path": "/8fNBsXpgMvqk75SPsZzTmIqSRxY.jpg",
+        "id": 646683,
+        "title": "The Exorcism",
+        "original_title": "The Exorcism",
+        "overview": "A troubled actor begins to unravel while shooting a supernatural horror film, leading his estranged daughter to wonder if he's slipping back into his past addictions or if there's something more sinister at play.",
+        "poster_path": "/ar2h87jlTfMlrDZefR3VFz1SfgH.jpg",
         "media_type": "movie",
         "adult": false,
         "original_language": "en",
         "genre_ids": [
-            28,
+            27,
+            53
+        ],
+        "popularity": 384.845,
+        "release_date": "2024-05-30",
+        "video": false,
+        "vote_average": 4.22,
+        "vote_count": 59
+    },
+    {
+        "backdrop_path": "/s4u5WD9KHHOquos7onVeipnmcCH.jpg",
+        "id": 1310259,
+        "title": "Lobola Man",
+        "original_title": "Lobola Man",
+        "overview": "Ace Ngubeni, a slick lobola negotiator, faces his toughest deal yet for a shy client - only to find the stakes are higher than cash.",
+        "poster_path": "/8htnhWgAdU711tksIJNo1KaoicR.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            35,
+            10749
+        ],
+        "popularity": 54.361,
+        "release_date": "2024-07-12",
+        "video": false,
+        "vote_average": 0.0,
+        "vote_count": 0
+    },
+    {
+        "backdrop_path": "/wXx72bbhhnfORmlSNMWR28fPd8b.jpg",
+        "id": 1086747,
+        "title": "The Watchers",
+        "original_title": "The Watchers",
+        "overview": "A young artist gets stranded in an extensive, immaculate forest in western Ireland, where, after finding shelter, she becomes trapped alongside three strangers, stalked by mysterious creatures each night.",
+        "poster_path": "/vZVEUPychdvZLrTNwWErr9xZFmu.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            14,
+            9648,
             53,
-            12
+            27
         ],
-        "popularity": 185.37,
-        "release_date": "2024-07-11",
+        "popularity": 567.145,
+        "release_date": "2024-06-06",
         "video": false,
-        "vote_average": 5.7,
-        "vote_count": 3
-    },
-    {
-        "backdrop_path": "/jvPMJ2zM92jfXxVEFsqP1MMrLaO.jpg",
-        "id": 823464,
-        "title": "Godzilla x Kong: The New Empire",
-        "original_title": "Godzilla x Kong: The New Empire",
-        "overview": "Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence \u2013 and our own.",
-        "poster_path": "/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            878,
-            28,
-            12
-        ],
-        "popularity": 1184.672,
-        "release_date": "2024-03-27",
-        "video": false,
-        "vote_average": 7.21,
-        "vote_count": 3088
+        "vote_average": 6.557,
+        "vote_count": 465
     }
 ]
