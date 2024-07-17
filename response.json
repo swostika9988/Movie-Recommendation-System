@@ -1,25 +1,44 @@
 [
     {
-        "backdrop_path": "/dn3gbDpXPSwC6saMJOHkCiFA9jn.jpg",
-        "id": 974262,
-        "title": "Descendants: The Rise of Red",
-        "original_title": "Descendants: The Rise of Red",
-        "overview": "After the Queen of Hearts incites a coup on Auradon, her rebellious daughter Red and Cinderella's perfectionist daughter Chloe join forces and travel back in time to try to undo the traumatic event that set Red's mother down her villainous path.",
-        "poster_path": "/8fYluTtB3b3HKO7KQa5tzrvGaps.jpg",
+        "backdrop_path": "/yKrZcgpMwgGEbxolugcOKFdxjxF.jpg",
+        "id": 932086,
+        "title": "Horizon: An American Saga - Chapter 1",
+        "original_title": "Horizon: An American Saga - Chapter 1",
+        "overview": "Explore the lure of the Old West and how it was won\u2014and lost\u2014through the blood, sweat and tears of many. Spanning 15 years before, during, and following the Civil War, from 1859 to 1874, embark on an emotional journey across a country at war with itself, experienced through the lens of families, friends and foes all attempting to discover what it truly means to be the United States of America.",
+        "poster_path": "/hqDkO0W9uk4aiwzn3pTeLO7NPZD.jpg",
         "media_type": "movie",
         "adult": false,
         "original_language": "en",
         "genre_ids": [
-            14,
-            12,
-            10751,
-            35
+            37,
+            18
         ],
-        "popularity": 332.457,
-        "release_date": "2024-07-11",
+        "popularity": 147.77,
+        "release_date": "2024-06-26",
         "video": false,
-        "vote_average": 7.5,
-        "vote_count": 69
+        "vote_average": 7.021,
+        "vote_count": 72
+    },
+    {
+        "backdrop_path": "/dsGwCEO8tda4FlgHKvL95f0oQbH.jpg",
+        "id": 1209290,
+        "title": "Justice League: Crisis on Infinite Earths Part Three",
+        "original_title": "Justice League: Crisis on Infinite Earths Part Three",
+        "overview": "Now fully revealed as the ultimate threat to existence, the Anti-Monitor wages an unrelenting attack on the surviving Earths that struggle for survival in a pocket universe. One by one, these worlds and all their inhabitants are vaporized! On the planets that remain, even time itself is shattered, and heroes from the past join the Justice League and their rag-tag allies against the epitome of evil. But as they make their last stand, will the sacrifice of the superheroes be enough to save us all?",
+        "poster_path": "/a3q8NkM8uTh9E23VsbUOdDSbBeN.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            16,
+            878,
+            28
+        ],
+        "popularity": 114.289,
+        "release_date": "2024-07-16",
+        "video": false,
+        "vote_average": 6.1,
+        "vote_count": 11
     },
     {
         "backdrop_path": "/fqv8v6AycXKsivp1T5yKtLbGXce.jpg",
@@ -36,116 +55,32 @@
             12,
             28
         ],
-        "popularity": 2421.298,
+        "popularity": 1804.611,
         "release_date": "2024-05-08",
         "video": false,
-        "vote_average": 7.077,
-        "vote_count": 1736
+        "vote_average": 7.12,
+        "vote_count": 1868
     },
     {
-        "backdrop_path": "/Akv9GlCCMrzcDkVz4ad8MdLl9DK.jpg",
-        "id": 748783,
-        "title": "The Garfield Movie",
-        "original_title": "The Garfield Movie",
-        "overview": "Garfield, the world-famous, Monday-hating, lasagna-loving indoor cat, is about to have a wild outdoor adventure! After an unexpected reunion with his long-lost father \u2013 scruffy street cat Vic \u2013 Garfield and his canine friend Odie are forced from their perfectly pampered life into joining Vic in a hilarious, high-stakes heist.",
-        "poster_path": "/xYduFGuch9OwbCOEUiamml18ZoB.jpg",
+        "backdrop_path": "/dvBCdCohwWbsP5qAaglOXagDMtk.jpg",
+        "id": 533535,
+        "title": "Deadpool & Wolverine",
+        "original_title": "Deadpool & Wolverine",
+        "overview": "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine.",
+        "poster_path": "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
         "media_type": "movie",
         "adult": false,
         "original_language": "en",
         "genre_ids": [
-            16,
-            35,
-            10751,
-            12
-        ],
-        "popularity": 3044.868,
-        "release_date": "2024-04-30",
-        "video": false,
-        "vote_average": 7.063,
-        "vote_count": 366
-    },
-    {
-        "backdrop_path": "/bVigVS3LVotEK4GsBlGOagkjPEc.jpg",
-        "id": 1008409,
-        "title": "The Bikeriders",
-        "original_title": "The Bikeriders",
-        "overview": "After a chance encounter, headstrong Kathy is drawn to Benny, member of Midwestern motorcycle club the Vandals. As the club transforms into a dangerous underworld of violence, Benny must choose between Kathy and his loyalty to the club.",
-        "poster_path": "/qTb6sSRt8Pw96JTan8ezU2xO0FU.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            80,
-            18
-        ],
-        "popularity": 345.802,
-        "release_date": "2024-06-19",
-        "video": false,
-        "vote_average": 7.159,
-        "vote_count": 252
-    },
-    {
-        "backdrop_path": "/c8KlUfYC5442nkG1Zyaygfui5Q9.jpg",
-        "id": 1039868,
-        "title": "Vanished into the Night",
-        "original_title": "Svaniti nella notte",
-        "overview": "A father, immersed in a difficult divorce process, embarks on a dangerous mission when his children disappear from their isolated country house.",
-        "poster_path": "/f83MF5KVFRs5zuFCPlb6UQV1Yo9.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "it",
-        "genre_ids": [
-            53,
-            9648,
-            18
-        ],
-        "popularity": 104.878,
-        "release_date": "2024-07-10",
-        "video": false,
-        "vote_average": 4.875,
-        "vote_count": 28
-    },
-    {
-        "backdrop_path": "/3Mm2KDkOoQV8u0O5wKUkN1EOhgo.jpg",
-        "id": 1213742,
-        "title": "Tyler Perry's Divorce in the Black",
-        "original_title": "Tyler Perry's Divorce in the Black",
-        "overview": "Ava, a young bank professional is devastated when her husband Dallas abandons a marriage she is determined to fight for until fate intervenes, revealing Dallas' wicked deeds that have trashed their marriage, and once upon a time sabotaged Ava's destiny to be loved by her true soulmate.",
-        "poster_path": "/d5X03SA51Ezd02iF9BCjWXC9X9F.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            18,
-            53,
-            9648
-        ],
-        "popularity": 139.854,
-        "release_date": "2024-07-11",
-        "video": false,
-        "vote_average": 6.133,
-        "vote_count": 15
-    },
-    {
-        "backdrop_path": "/wNAhuOZ3Zf84jCIlrcI6JhgmY5q.jpg",
-        "id": 786892,
-        "title": "Furiosa: A Mad Max Saga",
-        "original_title": "Furiosa: A Mad Max Saga",
-        "overview": "As the world fell, young Furiosa is snatched from the Green Place of Many Mothers and falls into the hands of a great Biker Horde led by the Warlord Dementus. Sweeping through the Wasteland they come across the Citadel presided over by The Immortan Joe. While the two Tyrants war for dominance, Furiosa must survive many trials as she puts together the means to find her way home.",
-        "poster_path": "/iADOJ8Zymht2JPMoy3R7xceZprc.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
+            878,
             28,
-            12,
-            878
+            35
         ],
-        "popularity": 2425.404,
-        "release_date": "2024-05-22",
+        "popularity": 621.575,
+        "release_date": "2024-07-24",
         "video": false,
-        "vote_average": 7.664,
-        "vote_count": 2079
+        "vote_average": 0.0,
+        "vote_count": 0
     },
     {
         "backdrop_path": "/Avtx5jsdPuDa091jvx2Lye3ygke.jpg",
@@ -153,7 +88,7 @@
         "title": "Longlegs",
         "original_title": "Longlegs",
         "overview": "In pursuit of a notorious serial killer, a rookie FBI agent with a mysterious past must solve a series of occult clues to end his terrifying killing spree.",
-        "poster_path": "/7PFc431SEiHbsMjrkF1VAfFlPn3.jpg",
+        "poster_path": "/dLAP1apgFIoBoPNw4HJLVACSu7u.jpg",
         "media_type": "movie",
         "adult": false,
         "original_language": "en",
@@ -162,72 +97,11 @@
             27,
             53
         ],
-        "popularity": 275.011,
+        "popularity": 291.768,
         "release_date": "2024-07-10",
         "video": false,
-        "vote_average": 7.2,
-        "vote_count": 33
-    },
-    {
-        "backdrop_path": "/rShMNq8ElzAxgO2BfwBzPO9NnLU.jpg",
-        "id": 1172648,
-        "title": "Blame the Game",
-        "original_title": "Spieleabend",
-        "overview": "Pia and Jan have just fallen in love and arranged to meet Pia's friends for a game night. Jan meets Pia's friends for the first time and is under pressure to make the perfect first impression. When Pia's ex-boyfriend shows up and even Jan's buddy's tips can't save anything, everything is at stake: the relationship, the friendship, and the definition of truth.",
-        "poster_path": "/d0UeupV6kpfDhb5Gx2RclQdxa3W.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "de",
-        "genre_ids": [
-            35,
-            10749
-        ],
-        "popularity": 25.165,
-        "release_date": "2024-07-03",
-        "video": false,
-        "vote_average": 5.875,
-        "vote_count": 12
-    },
-    {
-        "backdrop_path": "/rrwt0u1rW685u9bJ9ougg5HJEHC.jpg",
-        "id": 280180,
-        "title": "Beverly Hills Cop: Axel F",
-        "original_title": "Beverly Hills Cop: Axel F",
-        "overview": "Forty years after his unforgettable first case in Beverly Hills, Detroit cop Axel Foley returns to do what he does best: solve crimes and cause chaos.",
-        "poster_path": "/zszRKfzjM5jltiq8rk6rasKVpUv.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            28,
-            35,
-            80
-        ],
-        "popularity": 1849.639,
-        "release_date": "2024-06-20",
-        "video": false,
         "vote_average": 6.9,
-        "vote_count": 515
-    },
-    {
-        "backdrop_path": "/tqSg1hHiSWhHAhnjDhhevaFGsP0.jpg",
-        "id": 1066262,
-        "title": "The Convert",
-        "original_title": "The Convert",
-        "overview": "Munro, a soldier turned lay preacher, comes to New Zealand to minister to the first British colonists, but he is converted by the powerful chief Maianui to serve a different purpose.",
-        "poster_path": "/e5ZqqPlhKstzB4geibpZh38w7Pq.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            28,
-            18
-        ],
-        "popularity": 55.927,
-        "release_date": "2024-03-14",
-        "video": false,
-        "vote_average": 6.9,
-        "vote_count": 8
+        "vote_count": 66
     },
     {
         "backdrop_path": "/7aPrv2HFssWcOtpig5G3HEVk3uS.jpg",
@@ -241,17 +115,38 @@
         "original_language": "en",
         "genre_ids": [
             28,
-            53,
             12
         ],
-        "popularity": 452.46,
+        "popularity": 539.236,
         "release_date": "2024-07-10",
         "video": false,
-        "vote_average": 8.0,
-        "vote_count": 30
+        "vote_average": 7.9,
+        "vote_count": 48
     },
     {
-        "backdrop_path": "/stKGOm8UyhuLPR9sZLjs5AkmncA.jpg",
+        "backdrop_path": "/dn3gbDpXPSwC6saMJOHkCiFA9jn.jpg",
+        "id": 974262,
+        "title": "Descendants: The Rise of Red",
+        "original_title": "Descendants: The Rise of Red",
+        "overview": "After the Queen of Hearts incites a coup on Auradon, her rebellious daughter Red and Cinderella's perfectionist daughter Chloe join forces and travel back in time to try to undo the traumatic event that set Red's mother down her villainous path.",
+        "poster_path": "/dwxWNJ9oDLqNPbA0884h5J7mfqy.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            14,
+            12,
+            10751,
+            35
+        ],
+        "popularity": 912.262,
+        "release_date": "2024-07-11",
+        "video": false,
+        "vote_average": 7.332,
+        "vote_count": 119
+    },
+    {
+        "backdrop_path": "/xg27NrXi7VXCGUr7MG75UqLl6Vg.jpg",
         "id": 1022789,
         "title": "Inside Out 2",
         "original_title": "Inside Out 2",
@@ -267,11 +162,53 @@
             35,
             18
         ],
-        "popularity": 7707.064,
+        "popularity": 5696.178,
         "release_date": "2024-06-11",
         "video": false,
-        "vote_average": 7.688,
-        "vote_count": 1746
+        "vote_average": 7.7,
+        "vote_count": 1843
+    },
+    {
+        "backdrop_path": "/u3qYwom6TtMXtglaVs07Bcu1L49.jpg",
+        "id": 1032425,
+        "title": "The Dead Don't Hurt",
+        "original_title": "The Dead Don't Hurt",
+        "overview": "In the 1860s, fiercely independent French-Canadian Vivienne Le Coudy embarks on a journey with Danish immigrant Holger Olsen, attempting to forge a life together in the dusty town of Elk Flats, Nevada. When Holger decides to go fight for the Union in the burgeoning Civil War, Vivienne must fend for herself, which isn't easy in a town controlled by a corrupt mayor.",
+        "poster_path": "/br67EKUD34UL3mihsHqJhDzJaIt.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            18,
+            37
+        ],
+        "popularity": 56.771,
+        "release_date": "2024-05-01",
+        "video": false,
+        "vote_average": 6.3,
+        "vote_count": 38
+    },
+    {
+        "backdrop_path": "/Akv9GlCCMrzcDkVz4ad8MdLl9DK.jpg",
+        "id": 748783,
+        "title": "The Garfield Movie",
+        "original_title": "The Garfield Movie",
+        "overview": "Garfield, the world-famous, Monday-hating, lasagna-loving indoor cat, is about to have a wild outdoor adventure! After an unexpected reunion with his long-lost father \u2013 scruffy street cat Vic \u2013 Garfield and his canine friend Odie are forced from their perfectly pampered life into joining Vic in a hilarious, high-stakes heist.",
+        "poster_path": "/p6AbOJvMQhBmffd0PIv0u8ghWeY.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            16,
+            35,
+            10751,
+            12
+        ],
+        "popularity": 2381.187,
+        "release_date": "2024-04-30",
+        "video": false,
+        "vote_average": 7.253,
+        "vote_count": 434
     },
     {
         "backdrop_path": "/fDmci71SMkfZM8RnCuXJVDPaSdE.jpg",
@@ -289,112 +226,73 @@
             35,
             28
         ],
-        "popularity": 5914.148,
+        "popularity": 4379.882,
         "release_date": "2024-06-20",
         "video": false,
-        "vote_average": 7.519,
-        "vote_count": 240
+        "vote_average": 7.467,
+        "vote_count": 288
     },
     {
-        "backdrop_path": "/ncTtBRGnohOCMKfVuu3AfzaL1xE.jpg",
-        "id": 822119,
-        "title": "Captain America: Brave New World",
-        "original_title": "Captain America: Brave New World",
-        "overview": "After meeting with newly elected U.S. President Thaddeus Ross, Sam finds himself in the middle of an international incident. He must discover the reason behind a nefarious global plot before the true mastermind has the entire world seeing red.",
-        "poster_path": "/jmobYdUXrbj1g5QFWjeomOk2Noz.jpg",
+        "backdrop_path": "/wNAhuOZ3Zf84jCIlrcI6JhgmY5q.jpg",
+        "id": 786892,
+        "title": "Furiosa: A Mad Max Saga",
+        "original_title": "Furiosa: A Mad Max Saga",
+        "overview": "As the world fell, young Furiosa is snatched from the Green Place of Many Mothers and falls into the hands of a great Biker Horde led by the Warlord Dementus. Sweeping through the Wasteland they come across the Citadel presided over by The Immortan Joe. While the two Tyrants war for dominance, Furiosa must survive many trials as she puts together the means to find her way home.",
+        "poster_path": "/iADOJ8Zymht2JPMoy3R7xceZprc.jpg",
         "media_type": "movie",
         "adult": false,
         "original_language": "en",
         "genre_ids": [
             28,
+            12,
             878
         ],
-        "popularity": 140.286,
-        "release_date": "2025-02-12",
+        "popularity": 1912.451,
+        "release_date": "2024-05-22",
         "video": false,
-        "vote_average": 0.0,
-        "vote_count": 0
+        "vote_average": 7.65,
+        "vote_count": 2146
     },
     {
-        "backdrop_path": "/dvBCdCohwWbsP5qAaglOXagDMtk.jpg",
-        "id": 533535,
-        "title": "Deadpool & Wolverine",
-        "original_title": "Deadpool & Wolverine",
-        "overview": "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine.",
-        "poster_path": "/jbwYaoYWZwxtPP76AZnfYKQjCEB.jpg",
+        "backdrop_path": "/bVigVS3LVotEK4GsBlGOagkjPEc.jpg",
+        "id": 1008409,
+        "title": "The Bikeriders",
+        "original_title": "The Bikeriders",
+        "overview": "After a chance encounter, headstrong Kathy is drawn to Benny, member of Midwestern motorcycle club the Vandals. As the club transforms into a dangerous underworld of violence, Benny must choose between Kathy and his loyalty to the club.",
+        "poster_path": "/qTb6sSRt8Pw96JTan8ezU2xO0FU.jpg",
         "media_type": "movie",
         "adult": false,
         "original_language": "en",
         "genre_ids": [
-            878,
+            80,
+            18
+        ],
+        "popularity": 310.754,
+        "release_date": "2024-06-19",
+        "video": false,
+        "vote_average": 7.119,
+        "vote_count": 282
+    },
+    {
+        "backdrop_path": "/rrwt0u1rW685u9bJ9ougg5HJEHC.jpg",
+        "id": 280180,
+        "title": "Beverly Hills Cop: Axel F",
+        "original_title": "Beverly Hills Cop: Axel F",
+        "overview": "Forty years after his unforgettable first case in Beverly Hills, Detroit cop Axel Foley returns to do what he does best: solve crimes and cause chaos.",
+        "poster_path": "/zszRKfzjM5jltiq8rk6rasKVpUv.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
             28,
-            35
-        ],
-        "popularity": 461.433,
-        "release_date": "2024-07-24",
-        "video": false,
-        "vote_average": 0.0,
-        "vote_count": 0
-    },
-    {
-        "backdrop_path": "/8xMR5w9qfpwhTJzjjvfj2ywvIF3.jpg",
-        "id": 956842,
-        "title": "Fly Me to the Moon",
-        "original_title": "Fly Me to the Moon",
-        "overview": "Sparks fly in all directions as marketing maven Kelly Jones, brought in to fix NASA's public image, wreaks havoc on Apollo 11 launch director Cole Davis' already difficult task of putting a man on the moon. When the White House deems the mission too important to fail, Jones is directed to stage a fake moon landing as backup, and the countdown truly begins.",
-        "poster_path": "/gjk8YdXpItoC1in53FCrZMFIuBx.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
             35,
-            10749
+            80
         ],
-        "popularity": 180.126,
-        "release_date": "2024-07-06",
+        "popularity": 1321.295,
+        "release_date": "2024-06-20",
         "video": false,
-        "vote_average": 7.477,
-        "vote_count": 43
-    },
-    {
-        "backdrop_path": "/8fNBsXpgMvqk75SPsZzTmIqSRxY.jpg",
-        "id": 646683,
-        "title": "The Exorcism",
-        "original_title": "The Exorcism",
-        "overview": "A troubled actor begins to unravel while shooting a supernatural horror film, leading his estranged daughter to wonder if he's slipping back into his past addictions or if there's something more sinister at play.",
-        "poster_path": "/ar2h87jlTfMlrDZefR3VFz1SfgH.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            27,
-            53
-        ],
-        "popularity": 384.845,
-        "release_date": "2024-05-30",
-        "video": false,
-        "vote_average": 4.22,
-        "vote_count": 59
-    },
-    {
-        "backdrop_path": "/s4u5WD9KHHOquos7onVeipnmcCH.jpg",
-        "id": 1310259,
-        "title": "Lobola Man",
-        "original_title": "Lobola Man",
-        "overview": "Ace Ngubeni, a slick lobola negotiator, faces his toughest deal yet for a shy client - only to find the stakes are higher than cash.",
-        "poster_path": "/8htnhWgAdU711tksIJNo1KaoicR.jpg",
-        "media_type": "movie",
-        "adult": false,
-        "original_language": "en",
-        "genre_ids": [
-            35,
-            10749
-        ],
-        "popularity": 54.361,
-        "release_date": "2024-07-12",
-        "video": false,
-        "vote_average": 0.0,
-        "vote_count": 0
+        "vote_average": 6.918,
+        "vote_count": 572
     },
     {
         "backdrop_path": "/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
@@ -410,10 +308,112 @@
             878,
             12
         ],
-        "popularity": 428.92,
+        "popularity": 367.094,
         "release_date": "2024-02-27",
         "video": false,
-        "vote_average": 8.166,
-        "vote_count": 4815
+        "vote_average": 8.167,
+        "vote_count": 4837
+    },
+    {
+        "backdrop_path": "/tqSg1hHiSWhHAhnjDhhevaFGsP0.jpg",
+        "id": 1066262,
+        "title": "The Convert",
+        "original_title": "The Convert",
+        "overview": "Munro, a soldier turned lay preacher, comes to New Zealand to minister to the first British colonists, but he is converted by the powerful chief Maianui to serve a different purpose.",
+        "poster_path": "/e5ZqqPlhKstzB4geibpZh38w7Pq.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            28,
+            18
+        ],
+        "popularity": 121.431,
+        "release_date": "2024-03-14",
+        "video": false,
+        "vote_average": 6.455,
+        "vote_count": 11
+    },
+    {
+        "backdrop_path": "/viKEEaaCaZ0hZ2nGuvIEozlLooL.jpg",
+        "id": 1023922,
+        "title": "MaXXXine",
+        "original_title": "MaXXXine",
+        "overview": "In 1980s Hollywood, adult film star and aspiring actress Maxine Minx finally gets her big break. But as a mysterious killer stalks the starlets of Hollywood, a trail of blood threatens to reveal her sinister past.",
+        "poster_path": "/ArvoFK6nlouZRxYmtIOUzKIrg90.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            27,
+            80,
+            9648
+        ],
+        "popularity": 164.512,
+        "release_date": "2024-07-04",
+        "video": false,
+        "vote_average": 7.1,
+        "vote_count": 77
+    },
+    {
+        "backdrop_path": "/1Lnch5CEdeND59iAF3aSGIJFI0D.jpg",
+        "id": 1039868,
+        "title": "Vanished into the Night",
+        "original_title": "Svaniti nella notte",
+        "overview": "A father, immersed in a difficult divorce process, embarks on a dangerous mission when his children disappear from their isolated country house.",
+        "poster_path": "/f83MF5KVFRs5zuFCPlb6UQV1Yo9.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "it",
+        "genre_ids": [
+            53,
+            9648,
+            18
+        ],
+        "popularity": 287.785,
+        "release_date": "2024-07-10",
+        "video": false,
+        "vote_average": 4.779,
+        "vote_count": 43
+    },
+    {
+        "backdrop_path": "/H5HjE7Xb9N09rbWn1zBfxgI8uz.jpg",
+        "id": 746036,
+        "title": "The Fall Guy",
+        "original_title": "The Fall Guy",
+        "overview": "Fresh off an almost career-ending accident, stuntman Colt Seavers has to track down a missing movie star, solve a conspiracy and try to win back the love of his life while still doing his day job.",
+        "poster_path": "/tSz1qsmSJon0rqjHBxXZmrotuse.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            28,
+            35
+        ],
+        "popularity": 419.265,
+        "release_date": "2024-04-24",
+        "video": false,
+        "vote_average": 7.244,
+        "vote_count": 1560
+    },
+    {
+        "backdrop_path": "/8xMR5w9qfpwhTJzjjvfj2ywvIF3.jpg",
+        "id": 956842,
+        "title": "Fly Me to the Moon",
+        "original_title": "Fly Me to the Moon",
+        "overview": "Sparks fly in all directions as marketing maven Kelly Jones, brought in to fix NASA's public image, wreaks havoc on Apollo 11 launch director Cole Davis' already difficult task of putting a man on the moon. When the White House deems the mission too important to fail, Jones is directed to stage a fake moon landing as backup, and the countdown truly begins.",
+        "poster_path": "/gjk8YdXpItoC1in53FCrZMFIuBx.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+            35,
+            10749
+        ],
+        "popularity": 159.596,
+        "release_date": "2024-07-06",
+        "video": false,
+        "vote_average": 7.343,
+        "vote_count": 67
     }
 ]

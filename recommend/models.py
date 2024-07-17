@@ -26,8 +26,10 @@ MOVIE_TAG = (
     ('popular','popular'),
     ('upcomming','upcomming'),
     ('top_rated','top_rated'),
-    ('most_reviewd','most_reviewd'),
-    ('trending','trending')
+    ('most_reviewed','most_reviewed'),
+    ('trending','trending'),
+   
+    
 )
 
 

@@ -11,12 +11,23 @@ from django.db.models import Q
 def index(request):
     template_name = 'index.html'
     movie_list = Movies.objects.exclude(Q(poster_url__isnull=True) | Q(poster_url='')).filter(tag='trending').order_by('-release_date')
+    popular_movies = Movies.objects.filter(tag='popular').order_by('-popularity')[:10]
+    coming_soon_movies = Movies.objects.filter(tag='coming_soon').order_by('release_date')[:10]
+    top_rated_movies = Movies.objects.filter(tag='top_rated').order_by('-rating')[:10]
+    most_reviewed_movies = Movies.objects.filter(tag='most_reviewed')
+
     # get all record of movies having trailer_url
     # find the section of trailer in index.html
     # use foor loop to list all the trailers in traier section of index.html
-    
+    trailer_urls = Movies.objects.exclude(Q(trailer_url__isnull=True) | Q(trailer_url='')).order_by('-release_date')
     context = {
-        'movie_lists': movie_list[:15], # 15
+        'movie_lists': movie_list[:15],
+        'popular_movies': popular_movies,
+        'coming_soon_movies': coming_soon_movies,
+        'top_rated_movies': top_rated_movies,
+        'most_reviewed_movies': most_reviewed_movies, # 15
+        'movie_urls': trailer_urls[:30]
+        
     }
     return render(request,template_name,context)
 
