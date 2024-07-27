@@ -10,6 +10,8 @@ class DateTimeModel(models.Model):
     class Meta:
         abstract = True
 
+      
+
 # create table for user
 
 class User(DateTimeModel):
@@ -31,6 +33,7 @@ MOVIE_TAG = (
    
     
 )
+
 
 
 class Genres(DateTimeModel):
