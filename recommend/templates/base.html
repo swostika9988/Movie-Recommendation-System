@@ -76,10 +76,9 @@
            </div>
         </div>
         <div class="row">
-        	<p>Or via social</p>
+        	<p>Or</p>
             <div class="social-btn-2">
-            	<a class="fb" href="#"><i class="ion-social-facebook"></i>Facebook</a>
-            	<a class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
+            	<button class="button" onclick="get_singupform(this);">Singup Now</button>
             </div>
         </div>
     </div>
@@ -119,6 +118,13 @@
            <div class="row">
              <button type="button" onclick="signup(this);">sign up</button>
            </div>
+		   <div class="row">
+        	<p>Or</p>
+            <div class="social-btn-2">
+            	<button class="button" onclick="get_loginform(this);">Sigin Now</button>
+            </div>
+        </div>
+
         </div>
     </div>
 </div>
@@ -396,6 +402,7 @@ async function user_login(event){
 	});
 	if (response.ok) {
             const jsonResponse = await response.json();
+			localStorage.setItem('is_user_logined',true);
             console.log('Login successful:', jsonResponse);
 			// this will close the login form
 			var overlay = $(".overlay");
@@ -411,6 +418,7 @@ async function user_login(event){
 } 
 
 async function logout(event){
+	localStorage.removeItem('is_user_logined');
 	const csrftoken = getCookie('csrftoken');
 	const response = await fetch('/users/logout/', {
 		method: 'POST',
@@ -426,5 +434,76 @@ async function logout(event){
 	
 }
 
+function get_singupform(event){
+	// this will close the login form
+	var overlay = $(".overlay");
+	overlay.removeClass("openform");
+	// now open singup form 
+	var signupLink = $(".signupLink");
+	var signupct= $("#signup-content");
+	signupct.parents(overlay).addClass("openform");
+
+}
+
+function get_loginform(event){
+	// this will close the signup form
+	var overlay = $(".overlay");
+	overlay.removeClass("openform");
+	// this will open the sign form 
+	var overlay = $(".overlay");
+	var loginct = $( "#login-content" );
+	loginct.parents(overlay).addClass("openform");
+
+}
 
 </script> 
+
+<script>
+	async function check_login(){
+		// check local storage to see whether user is loged in or not
+		var data = localStorage.getItem('is_user_logined');
+		if (!data){
+			// call api to check user session is exists or not
+			const csrftoken = getCookie('csrftoken'); 
+			const response = await fetch('/users/check_user_session/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'X-CSRFToken': csrftoken
+				},
+				body: JSON.stringify({})
+			});
+			if (response.ok) {
+				const jsonResponse = await response.json();
+				
+				if (jsonResponse['status']){
+					// add to local storage and close login form if exists
+					localStorage.setItem('is_user_logined',true);
+					// this will close the login form
+					var overlay = $(".overlay");
+					overlay.removeClass("openform");
+				}
+				else{
+
+					localStorage.removeItem('is_user_logined');
+					// this will open the sign form 
+					var overlay = $(".overlay");
+					var loginct = $( "#login-content" );
+					loginct.parents(overlay).addClass("openform");
+				}
+
+			}
+		}
+	}
+
+
+	$(document).ready(function(){
+		// Call the async function using an IIFE
+		(async function() {
+                await check_login();
+        })();
+	})
+</script>
+{% block js %}
+
+{% endblock %}

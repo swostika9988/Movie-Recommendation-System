@@ -70,7 +70,7 @@ def login(request):
             return JsonResponse({'message': 'Login successful'})
         else:
             return JsonResponse({'message': 'Invalid credentials'}, status=400)
-    return render(request, 'base.html')
+    return render(request, 'login.html')
 
 def signup(request):
     if request.method == "POST":

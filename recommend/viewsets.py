@@ -39,3 +39,11 @@ class UserViewSet(viewsets.GenericViewSet):
         # delete session 
         del request.session['user']
         return Response({'message':'logout successfully'})
+    
+    @action(detail=False, methods=['post'], url_path='check_user_session')
+    def check_user_session(self,request):
+        if request.session.has_key('user'):
+            return Response({'status': True})
+        else:
+            return Response({'status': False})
+        
