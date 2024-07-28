@@ -6,6 +6,9 @@ from django.forms.models import model_to_dict
 from django.db.models import Q
 from .utils import get_embed_url
 
+
+
+
 # Create your views here.
 
 
@@ -75,5 +78,4 @@ def signup(request):
         signupform = signupform(request.POST)
         signup = signupform.save()
         return JsonResponse(model_to_dict(signup))
-       
-         
+

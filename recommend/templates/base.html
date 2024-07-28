@@ -218,13 +218,13 @@
 							</ul>
 						</li>                
 						<li><a href="#">Help</a></li>
-						{% if user_session %}
+						 {% if user_session %}
 						<li class="logout" onclick="logout(this);"><a href="#">LOGOUT</a></li>
 						<li class="btn users"><a href="#">{{user_session}}</a></li>
 						{% else %}
 						<li class="loginLink"><a href="#">LOG In</a></li>
 						<li class="btn signupLink"><a href="#">sign up</a></li>
-						{% endif %}
+						{% endif %} 
 					</ul>
 				</div>
 			<!-- /.navbar-collapse -->
@@ -238,7 +238,7 @@
 					<option value="saab">Others</option>
 				</select>
 				<input type="text" name="q" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-				<button type="submit">Search</button>
+				
 			</div>
 		</form>
 		
@@ -317,9 +317,9 @@
 <!-- Mirrored from busterhtml.mbkip3ms9u-e92498n216kr.p.temp-site.link/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Jun 2024 09:03:55 GMT -->
 </html>
 
-<script>
+ <script>
 
-function getCookie(name) {
+ function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
         const cookies = document.cookie.split(';');
@@ -408,7 +408,7 @@ async function user_login(event){
             console.error('Registration failed:', errorResponse);
         }
 
-}
+} 
 
 async function logout(event){
 	const csrftoken = getCookie('csrftoken');
@@ -427,4 +427,4 @@ async function logout(event){
 }
 
 
-</script>
+</script> 

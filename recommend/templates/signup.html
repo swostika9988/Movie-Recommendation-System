@@ -1,0 +1,109 @@
+{% extends 'login.html' %}
+{% load static %}  <!-- Add this line -->
+{% block content %}
+
+
+
+<link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+<div class="login-wrapper"  id="signup-content">
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <h3>sign up</h3>
+        <div  id="signupform">
+            <div class="row">
+                 <label for="username-2">
+                    Username:
+                    <input type="text" class="lowercase" name="username" id="username" placeholder=" "  required="required" />
+                </label>
+            </div>
+           
+            <div class="row">
+                <label for="email-2">
+                    your email:
+                    <input type="text" class="lowercase" name="email" id="email" placeholder=""  required="required" />
+                </label>
+            </div>
+             <div class="row">
+                <label for="password-2">
+                    Password:
+                    <input type="text" class="lowercase" name="password" id="password" placeholder=""  required="required" />
+                </label>
+            </div>
+             <div class="row">
+                <label for="repassword-2">
+                    re-type Password:
+                    <input type="text" class="lowercase" name="password" id="repassword" placeholder=""  required="required" />
+                </label>
+            </div>
+           <div class="row">
+             <button type="button" onclick="signup(this);">sign up</button>
+           </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith(name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    
+    async function signup(event){
+        username = $('#username').val().toLowerCase();
+        email = $('#email').val().toLowerCase();
+        password=  $('#password').val().toLowerCase();
+        repassword = $('#repassword').val().toLowerCase();
+        const csrftoken = getCookie('csrftoken'); // Function to get CSRF token from cookies
+        if(password != repassword){
+            alert('your password is not match');
+            return;
+        }
+        var data = {
+            "username": username,
+            "password": password,
+            "email": email
+        };
+        const response = await fetch('/users/register/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken
+            },
+            body: JSON.stringify(data)
+        });
+        if (response.ok) {
+                const jsonResponse = await response.json();
+                console.log('Registration successful:', jsonResponse);
+                // this will close the signup form
+                var overlay = $(".overlay");
+                overlay.removeClass("openform");
+                // this will open the sign form 
+                var overlay = $(".overlay");
+                var loginct = $( "#login-content" );
+                loginct.parents(overlay).addClass("openform");
+    
+            } else {
+                const errorResponse = await response.json();
+                // console.error('Registration failed:', errorResponse);
+                alert(errorResponse[0]);
+            }
+    
+    }
+</script>

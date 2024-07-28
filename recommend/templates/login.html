@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}  <!-- Add this line -->
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	
+<div class="login-wrapper" id="login-content">
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <h3>Login</h3>
+        <div id="loginform">
+        	<div class="row">
+        		 <label for="username">
+                    Username:
+                    <input type="text" name="username" id="login_username" placeholder=" " required="required" />
+                </label>
+        	</div>
+           
+            <div class="row">
+            	<label for="password">
+                    Password:
+                    <input type="password" name="password" id="login_password" placeholder=" "  required="required" />
+                </label>
+            </div>
+            <div class="row">
+            	<div class="remember">
+					<div>
+						<input type="checkbox" name="remember" value="Remember me"><span>Remember me</span>
+					</div>
+            		<a href="#">Forget password ?</a>
+            	</div>
+            </div>
+           <div class="row">
+           	 <button type="button" onclick="user_login(this);">Login</button>
+           </div>
+        </div>
+        <div class="row">
+        	<p>Or via social</p>
+            <div class="social-btn-2">
+            	<a class="fb" href="#"><i class="ion-social-facebook"></i>Facebook</a>
+            	<a class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
+				{% if user_session %}
+						<li class="logout" onclick="logout(this);"><a href="#">LOGOUT</a></li>
+						<li class="btn users"><a href="#">{{user_session}}</a></li>
+						{% else %}
+						<li class="loginLink"><a href="#">LOG In</a></li>
+						<li class="btn signupLink"><a href="#">sign up</a></li>
+						{% endif %}
+					</ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+<script>
+	function getCookie(name) {
+		let cookieValue = null;
+		if (document.cookie && document.cookie !== '') {
+			const cookies = document.cookie.split(';');
+			for (let i = 0; i < cookies.length; i++) {
+				const cookie = cookies[i].trim();
+				if (cookie.startsWith(name + '=')) {
+					cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+					break;
+				}
+			}
+		}
+		return cookieValue;
+	}
+	
+	async function user_login(event){
+		username = $('#login_username').val().toLowerCase();
+		password=  $('#login_password').val().toLowerCase();
+		const csrftoken = getCookie('csrftoken'); // Function to get CSRF token from cookies
+		var data = {
+			"username": username,
+			"password": password,
+			"email": email
+		};
+		const response = await fetch('/users/login/', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRFToken': csrftoken
+			},
+			body: JSON.stringify(data)
+		});
+		if (response.ok) {
+				const jsonResponse = await response.json();
+				console.log('Login successful:', jsonResponse);
+				// this will close the login form
+				var overlay = $(".overlay");
+				overlay.removeClass("openform");
+				alert('Login is successfully');
+				location.reload();  // Reload the page on successful login
+	
+			} else {
+				const errorResponse = await response.json();
+				console.error('Registration failed:', errorResponse);
+			}
+	
+	}
+	async function logout(event){
+		const csrftoken = getCookie('csrftoken');
+		const response = await fetch('/users/logout/', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRFToken': csrftoken
+			},
+			body: JSON.stringify({})
+		});
+		alert('Logout is successfully');
+		location.reload();  // Reload the page on successful login
+	
+		
+	}
+	
+
+
+</script>
