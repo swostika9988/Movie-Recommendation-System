@@ -47,12 +47,28 @@ def index(request):
 
 
 def search(request):
-    query = request.GET.get('q')
+    query = request.GET.get('query')
+    genre_filter = request.GET.get('genre')  # Get genre filter if applied
+    
+    # Get all movie data, filter by genre if provided
+    if genre_filter:
+        movies = Movies.objects.filter(genres__name__icontains=genre_filter)
+    else:
+        movies = Movies.objects.all()
     if query:
         # Get all movie data
         movies = Movies.objects.all()
         titles = [movie.title for movie in movies]
         genres = [", ".join([genre.name for genre in movie.genres.all()]) for movie in movies]
+        unique_genres = set()
+
+        for movie in movies:
+            for genre in movie.genres.all():
+                unique_genres.add(genre.name)
+
+        # Convert the set to a sorted list if needed
+        unique_genres = sorted(unique_genres)
+
         descriptions = [movie.tagline if movie.tagline else '' for movie in movies]
 
         # Combine title, genres, and descriptions for the vectorizer
@@ -66,13 +82,18 @@ def search(request):
         # Calculate cosine similarity
         similarities = cosine_similarity(query_vector, doc_vectors).flatten()
         
+        
         # Get the top 5 most similar movies
-        top_indices = similarities.argsort()[-5:][::-1]
+        top_indices = similarities.argsort()[-16:][::-1]
+        top_indices = list(top_indices)
+        top_indices = [int(i) for i in top_indices]
         recommended_movies = [movies[i] for i in top_indices]
 
-        return render(request, 'movies/search.html', {'movies': recommended_movies, 'query': query})
+        
+
+        return render(request, 'search.html', {'movies': recommended_movies, 'query': query, 'genres_list': unique_genres, 'genre_filter': genre_filter })
     else:
-        return render(request, 'movies/search.html', {'movies': [], 'query': query})
+        return render(request, 'search.html', {'movies': [], 'query': query})
     
     
 def login(request):
