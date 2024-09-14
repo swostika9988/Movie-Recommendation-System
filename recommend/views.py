@@ -5,6 +5,11 @@ from .models import User,Movies,Genres
 from django.forms.models import model_to_dict
 from django.db.models import Q
 from .utils import get_embed_url
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+
+
 
 
 
@@ -40,26 +45,36 @@ def index(request):
     return render(request,template_name,context)
 
 
+
 def search(request):
     query = request.GET.get('q')
     if query:
-        search = Movies.objects.filter(
-            Q(title__icontains=query) |
-            Q(tag__icontains=query) |
-            Q(genres__name__icontains=query)  # Ensure this line is correct
-        ).distinct()
+        # Get all movie data
+        movies = Movies.objects.all()
+        titles = [movie.title for movie in movies]
+        genres = [", ".join([genre.name for genre in movie.genres.all()]) for movie in movies]
+        descriptions = [movie.tagline if movie.tagline else '' for movie in movies]
+
+        # Combine title, genres, and descriptions for the vectorizer
+        documents = [f"{title} {genres} {description}" for title, genres, description in zip(titles, genres, descriptions)]
+
+        # Vectorize the documents and the query
+        vectorizer = TfidfVectorizer().fit(documents)
+        doc_vectors = vectorizer.transform(documents)
+        query_vector = vectorizer.transform([query])
+
+        # Calculate cosine similarity
+        similarities = cosine_similarity(query_vector, doc_vectors).flatten()
+        
+        # Get the top 5 most similar movies
+        top_indices = similarities.argsort()[-5:][::-1]
+        recommended_movies = [movies[i] for i in top_indices]
+
+        return render(request, 'movies/search.html', {'movies': recommended_movies, 'query': query})
     else:
-        search = Movies.objects.none()
-
-    for movie in search:
-        movie.trailer_url = get_embed_url(movie.trailer_url)
-
-
-    context = {
-        'search': search,
-        'query': query
-    }
-    return render(request, 'search.html', context)
+        return render(request, 'movies/search.html', {'movies': [], 'query': query})
+    
+    
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')

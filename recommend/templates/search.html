@@ -1,24 +1,30 @@
 {% extends 'base.html' %}
 
-{% block title %}Search Results{% endblock %}
+{% load static %}
 
 {% block content %}
-    <h1>Search Results for "{{ query }}"</h1>
 
-    {% if search_results %}
-        <div class="search-results">
-            {% for movie in search_results %}
-                <div class="movie-item">
-                    <h3>{{ movie.title }}</h3>
-                    <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" width="100">
-                    <p>Popularity: {{ movie.popularity }}</p>
-                    <iframe class="item-video" src="{{ movie.trailer_url }}" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
+<div class="mt-10">
+    {% if query %}
+        <h2 class="text-xl font-bold">Search Results for "{{ query }}"</h2>
+        <ul class="mt-4 space-y-4">
+            {% for movie in movies %}
+                <li>
+                    <h3 class="text-lg font-semibold">{{ movie.title }}</h3>
+                    <p class="text-sm text-gray-400">
+                        {% for genre in movie.genres.all %}
+                            {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p class="mt-2">{{ movie.tagline }}</p>
+                </li>
+            {% empty %}
+                <li>No movies found.</li>
             {% endfor %}
-        </div>
+        </ul>
     {% else %}
-        <p>No results found.</p>
+        <p>No search query provided.</p>
     {% endif %}
+</div>
+
 {% endblock %}

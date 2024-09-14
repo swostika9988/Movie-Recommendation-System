@@ -76,7 +76,7 @@
            </div>
         </div>
         <div class="row">
-        	<p>Or</p>
+        	<p class="text-center">Or</p>
             <div class="social-btn-2">
             	<button class="button" onclick="get_singupform(this);">Singup Now</button>
             </div>
@@ -93,14 +93,15 @@
             <div class="row">
                  <label for="username-2">
                     Username:
-                    <input type="text" class="lowercase" name="username" id="username" placeholder=" "  required="required" />
+                    <input type="text" class="lowercase" name="username" id="username" placeholder=" "  required="required" pattern="^(?=.{8,}$)(?=.*[A-Z])(?=.*[a-z]).*$"  title="Username must contain both uper and lowercase letters."/>
+					
                 </label>
             </div>
            
             <div class="row">
                 <label for="email-2">
                     your email:
-                    <input type="text" class="lowercase" name="email" id="email" placeholder=""  required="required" />
+                    <input type="text" class="lowercase" name="email" id="email" placeholder=""  required="required" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" />
                 </label>
             </div>
              <div class="row">
@@ -235,18 +236,14 @@
 				</div>
 			<!-- /.navbar-collapse -->
 	    </nav>
-	    
+	    <br>
+		<p class="text-center font-bold text-white">Welcome Everyone!</p>
 	    <!-- top search form -->
-	    <form method="GET" action="{% url 'search' %}">
-			<div class="top-search">
-				<select>
-					<option value="united">TV show</option>
-					<option value="saab">Others</option>
-				</select>
-				<input type="text" name="q" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-				
-			</div>
-		</form>
+	    <div class="top-search">
+	    	
+			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+	    </div>
+	</div>
 		
 </header>
 <!-- END | Header -->
@@ -308,7 +305,7 @@
 			<p>© 2024 Blockbuster. All Rights Reserved. Designed by Swostika.</p>
 		</div>
 		<div class="backtotop">
-			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+			<p><a href="#" id="back-to-top">Back to top <i class="ion-ios-arrow-thin-up"></i></a></p>
 		</div>
 	</div>
 </footer>
