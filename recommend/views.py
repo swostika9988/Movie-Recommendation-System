@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-
+import random
 
 
 
@@ -114,4 +114,18 @@ def signup(request):
         signupform = signupform(request.POST)
         signup = signupform.save()
         return JsonResponse(model_to_dict(signup))
+    
+def movie(request,id):
+    moives = Movies.objects.get(id=id)
+    genres = moives.genres.all()
+    related_movie = []
+    for gen in genres:
+        related_movie.extend(gen.movies.exclude(Q(poster_url__isnull=True) | Q(poster_url='')).filter(tag='trending').order_by('-release_date')[:10])
+    related_movie =  random.sample(related_movie, 10)
+    context = {
+        'movie': moives,
+        'related_movies': related_movie
+    }
+    return render(request,'movie.html',context)
+
 

@@ -19,7 +19,7 @@
 				{% for movie in movie_lists %}
 				<div class="movie-item">
 					<div class="mv-img">
-						<a href="#"><img src="{{movie.poster_url}}" alt="" width="285" height="437"></a>
+						<a href="{% url 'movie' id=movie.id %}"><img src="{{movie.poster_url}}" alt="" width="285" height="437"></a>
 					</div>
 					<div class="title-in">
 						<div class="cate">
@@ -27,7 +27,7 @@
 						</div>
 
 						<p><i class="ion-android-star"></i><span>{{movie.rating}}</span> /10</p>
-						<h6><a href="#">{{movie.title}}</a></h6>
+						<h6><a href="{% url 'movie' id=movie.id %}">{{movie.title}}</a></h6>
 					</div>
 				</div>
 				{% endfor %}

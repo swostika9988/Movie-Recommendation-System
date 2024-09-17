@@ -69,6 +69,16 @@ class Movies(DateTimeModel):
     def __str__(self) -> str:
         return f'{self.title}'
     
+
+class Reviews(DateTimeModel):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movies,on_delete=models.CASCADE)
+    review = models.CharField(max_length=400,null=True,blank=True)
+    rating = models.IntegerField(default=10)
+
+    def __str__(self) -> str:
+        return f'{self.user}'
+    
 class Trendingmovie(DateTimeModel):
     movie_id = models.IntegerField(null=True,blank=True)
     title = models.CharField(max_length=100)
