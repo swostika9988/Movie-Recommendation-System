@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login as auth_login
-from .models import User,Movies,Genres
+from .models import User,Movies,Genres,Reviews
 from django.forms.models import model_to_dict
 from django.db.models import Q
 from .utils import get_embed_url
@@ -52,23 +52,22 @@ def search(request):
     
     # Get all movie data, filter by genre if provided
     if genre_filter:
-        movies = Movies.objects.filter(genres__name__icontains=genre_filter)
+        movies = Movies.objects.filter(genres__name__icontains=genre_filter)[:24]
     else:
         movies = Movies.objects.all()
-    if query:
         # Get all movie data
-        movies = Movies.objects.all()
-        titles = [movie.title for movie in movies]
-        genres = [", ".join([genre.name for genre in movie.genres.all()]) for movie in movies]
-        unique_genres = set()
+    titles = [movie.title for movie in movies]
+    genres = [", ".join([genre.name for genre in movie.genres.all()]) for movie in movies]
+    unique_genres = set()
+    for movie in movies:
+        for genre in movie.genres.all():
+            unique_genres.add(genre.name)
 
-        for movie in movies:
-            for genre in movie.genres.all():
-                unique_genres.add(genre.name)
+    # Convert the set to a sorted list if needed
+    unique_genres = sorted(unique_genres)
 
-        # Convert the set to a sorted list if needed
-        unique_genres = sorted(unique_genres)
-
+    # using vector and similiartie for query
+    if query:
         descriptions = [movie.tagline if movie.tagline else '' for movie in movies]
 
         # Combine title, genres, and descriptions for the vectorizer
@@ -88,12 +87,10 @@ def search(request):
         top_indices = list(top_indices)
         top_indices = [int(i) for i in top_indices]
         recommended_movies = [movies[i] for i in top_indices]
-
-        
-
-        return render(request, 'search.html', {'movies': recommended_movies, 'query': query, 'genres_list': unique_genres, 'genre_filter': genre_filter })
     else:
-        return render(request, 'search.html', {'movies': [], 'query': query})
+        recommended_movies = movies
+
+    return render(request, 'search.html', {'movies': recommended_movies, 'query': query, 'genres_list': unique_genres, 'genre_filter': genre_filter })
     
     
 def login(request):
@@ -118,13 +115,19 @@ def signup(request):
 def movie(request,id):
     moives = Movies.objects.get(id=id)
     genres = moives.genres.all()
+    reviews = moives.reviews_set.all().order_by('-id')
+    username = request.session['user']
+    user = User.objects.get(username=username)
     related_movie = []
     for gen in genres:
         related_movie.extend(gen.movies.exclude(Q(poster_url__isnull=True) | Q(poster_url='')).filter(tag='trending').order_by('-release_date')[:10])
     related_movie =  random.sample(related_movie, 10)
     context = {
         'movie': moives,
-        'related_movies': related_movie
+        'related_movies': related_movie,
+        'reviews': reviews,
+        'user': user,
+        'total_review': len(reviews)
     }
     return render(request,'movie.html',context)
 

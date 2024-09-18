@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
-from .models import User,Movies,Genres,Trendingmovie
+from .models import User,Movies,Genres,Trendingmovie,Reviews
 
 
 '''
@@ -20,6 +20,12 @@ class UserSerializer(serializers.ModelSerializer):
         if user:
             raise serializers.ValidationError(f'Username already exists .. ')
         return super(UserSerializer, self).create(validated_data)
+
+
+class ReviewsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reviews
+        fields = '__all__'
 
 
 

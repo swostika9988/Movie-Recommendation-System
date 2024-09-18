@@ -164,15 +164,11 @@
 							movies<i class="fa fa-angle-down" aria-hidden="true"></i>
 							</a>
 							<ul class="dropdown-menu level1">
-								
-								<li><a href="movielist.html">Comedy</a></li>
-								<li><a href="movielist.html">Adventure</a></li>
-								<li><a href="movielist.html">Drama</a></li>
-								<li><a href="movielist.html">Crime</a></li>
-								<li><a href="movielist.html">Family</a></li>
-								<li><a href="moviesingle.html">Action</a></li>
-								<li class="it-last"><a href="seriessingle.html">Series single</a></li>
-								
+								{% for item in genres_list_context %}
+								{% if item %}
+								<li><a href="/search/?genre={{item.name}}">{{item.name}}</a></li>
+								{% endif %}
+								{% endfor %}								
 							</ul>
 						</li>
 						<li class="dropdown first">

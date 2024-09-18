@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="topbar-filter" style="margin-top: 25px;">
+    <p>Found <span>{{total}} reviews</span> in total</p>
+</div>
+{% for item in reviews %}
+<div class="mv-user-review-item">
+    <div class="user-infor">
+        <img src="{% static 'images/uploads/userava1.jpg' %}" alt="">
+        <div>
+            <h3>{{user.username}}</h3>
+            <p>rating : {{item.rating}}/10</p>
+            
+            <p class="time">
+                {{item.created_at|date:"F j, Y, g:i a"}} by <a href="#"> {{user.username}}</a>
+            </p>
+        </div>
+    </div>
+    <p>{{item.review}}</p>
+</div>
+
+{% endfor %}

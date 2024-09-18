@@ -2,10 +2,11 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 from rest_framework.routers import DefaultRouter
-from .viewsets import UserViewSet
+from .viewsets import UserViewSet,ReviewViewSet
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet, basename='user')
+router.register('review',ReviewViewSet,basename='review')
 
 
 

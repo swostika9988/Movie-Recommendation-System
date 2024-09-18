@@ -43,10 +43,10 @@
 						<div class="movie-item-style-2 movie-item-style-1">
 							<img src="{{movie.poster_url}}" alt="">
 							<div class="hvr-inner">
-	            				<a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+	            				<a  href="{% url 'movie' id=movie.id %}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
 	            			</div>
 							<div class="mv-item-infor">
-								<h6><a href="#">{{movie.title}}</a></h6>
+								<h6><a href="{% url 'movie' id=movie.id %}">{{movie.title}}</a></h6>
 							</div>
 						</div>
                         {% endfor %}					

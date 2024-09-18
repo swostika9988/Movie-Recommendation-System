@@ -79,6 +79,15 @@ class Reviews(DateTimeModel):
     def __str__(self) -> str:
         return f'{self.user}'
     
+class WatchHistory(DateTimeModel):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movies,on_delete=models.CASCADE)
+    count = models.IntegerField(default=1)
+
+    def __str__(self) -> str:
+        return f'{self.user}'
+
+    
 class Trendingmovie(DateTimeModel):
     movie_id = models.IntegerField(null=True,blank=True)
     title = models.CharField(max_length=100)
