@@ -2,9 +2,12 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.contrib.auth.hashers import check_password
-from .models import User,Reviews,Movies,WatchHistory
+from .models import User,Reviews,Movies,WatchHistory,Genres
 from .serializers import UserSerializer,ReviewsSerializer
 from django.template.loader import render_to_string
+from django.db.models import Count
+import datetime
+from django.db.models import Sum
 
 class UserViewSet(viewsets.GenericViewSet):
     queryset = User.objects.all()  # select * from user table where username=username
@@ -88,5 +91,113 @@ class ReviewViewSet(viewsets.GenericViewSet):
             watch = WatchHistory(user=user,movie=movie)
         watch.save()
         return Response({'message':'user watch added'},status=status.HTTP_201_CREATED)
+
+
+class UserDashboardChartViewsets(viewsets.GenericViewSet):
+
+    def get_watch_history(self,user):
+        today = datetime.date.today()
+        last_30_days = [(today - datetime.timedelta(days=i)).strftime('%Y-%m-%d') for i in range(30)]
+
+        # Fetch the movie count for each day in the last 30 days
+        watch_history = WatchHistory.objects.filter(
+            user=user, 
+            created_at__date__gte=today - datetime.timedelta(days=30)
+        ).values('created_at__date').annotate(
+            total_movies_watched=Sum('count')
+        ).order_by('created_at__date')
+
+        # Prepare the default movie data (set count to 0 for days with no movies)
+        movie_data = {day: 0 for day in last_30_days}
+
+        # Update movie_data with the actual counts from the query
+        for entry in watch_history:
+            day = entry['created_at__date'].strftime('%Y-%m-%d')
+            movie_data[day] = entry['total_movies_watched']
+
+        # Prepare the data for the chart
+        x = list(movie_data.keys())  # x-axis: list of dates (last 30 days)
+        y = list(movie_data.values())  # y-axis: list of movie counts
+        return x,y
+
+    def get_genres_data(self,user):
+        today = datetime.date.today()
+        last_30_days = today - datetime.timedelta(days=30)
+        # Get all watched movies by the user in the last 30 days
+        watched_movies = WatchHistory.objects.filter(
+            user=user,
+            created_at__date__gte=last_30_days
+        ).values('movie_id').distinct()
+
+        # Get genres for those movies and count how many times each genre was watched
+        genre_counts = Genres.objects.filter(
+            movies__id__in=watched_movies
+        ).annotate(
+            num_movies_watched=Count('movies')
+        ).order_by('-num_movies_watched')
+
+        # Prepare the data for the chart
+        x = [genre.name for genre in genre_counts]  # Genre names for the x-axis
+        y = [genre.num_movies_watched for genre in genre_counts]  # Count of movies per genre for the y-axis
+
+        return x,y
+    
+    def get_time_spent(self,user):
+        today = datetime.date.today()
+        last_30_days = [(today - datetime.timedelta(days=i)).strftime('%Y-%m-%d') for i in range(30)]
+
+        # Set an average movie duration (in minutes)
+        average_movie_duration = 120  # 120 minutes
+
+        # Get total count of movies watched per day for the last 30 days
+        watch_data = WatchHistory.objects.filter(
+            user=user,
+            created_at__date__gte=today - datetime.timedelta(days=30)
+        ).values('created_at__date').annotate(
+            total_movies_watched=Sum('count')
+        ).order_by('created_at__date')
+
+        # Initialize a dictionary to store time spent (default 0 for days with no data)
+        time_spent_data = {day: 0 for day in last_30_days}
+
+        # Update time_spent_data with actual values
+        for entry in watch_data:
+            day = entry['created_at__date'].strftime('%Y-%m-%d')
+            total_time_spent = entry['total_movies_watched'] * average_movie_duration
+            time_spent_data[day] = total_time_spent
+
+        # Prepare data for the chart
+        x = list(time_spent_data.keys())  # x-axis: last 30 days
+        y = list(time_spent_data.values())  # y-axis: time spent (in minutes)
+
+        return x,y
+    
+    def get_ratings(self,user):
+        # Get the count of each rating (1 to 5) for the logged-in user
+        rating_counts = Reviews.objects.filter(user=user).values('rating').annotate(
+            count=Count('rating')
+        ).order_by('rating')
+
+        # Prepare the data for the chart
+        x = [entry['rating'] for entry in rating_counts]  # Ratings (e.g., 1, 2, 3, 4, 5)
+        y = [entry['count'] for entry in rating_counts]  # Count of ra
+        return x,y
+
+    @action(detail=False, methods=['get'], url_path='user_data')
+    def charts_data(self,request):
+        # Get watch hsitroy data
+        username = request.session['user']
+        user = User.objects.get(username=username)
+        watch_x,watch_y = self.get_watch_history(user=user)
+        genres_x,genres_y = self.get_genres_data(user=user)
+        time_x,time_y = self.get_time_spent(user=user)
+        rating_x,rating_y = self.get_ratings(user=user)
+        context = {
+            'watch_histroy': {'x':watch_x,'y': watch_y},
+            'genres_data': {'x': genres_x,'y': genres_y},
+            'time_spent': {'x': time_x,'y': time_y},
+            'rating': {'x': rating_x,'y': rating_y}
+        }
+        return Response(context,status=200)
 
 

@@ -191,7 +191,7 @@
 						
 						 {% if user_session %}
 						<li class="logout" onclick="logout(this);"><a href="#">LOGOUT</a></li>
-						<li class="btn users"><a href="#">{{user_session}}</a></li>
+						<li class="btn users"><a href="{% url 'dashboard' %}">{{user_session}}</a></li>
 						{% else %}
 						<li class="loginLink"><a href="#">LOG In</a></li>
 						<li class="btn signupLink"><a href="#">sign up</a></li>

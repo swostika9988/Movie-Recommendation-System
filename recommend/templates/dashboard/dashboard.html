@@ -1,0 +1,329 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Earnings (Monthly)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Earnings (Annual)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Pending Requests</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+
+    <div class="row">
+
+        <!-- Area Chart -->
+        <div class="col-xl-8 col-lg-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">watch History Chart</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas id="watchHistoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="col-xl-4 col-lg-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="genrePreferenceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- heatmap -->
+        <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">time Spent Chart</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas id="timeSpentChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <!--  Rating Distributation -->
+        <div class="col-xl-4 col-lg-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Rating Distrubutation </h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="ratingsDistributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+
+function watchhistroy(x,y){
+
+            const watchHistoryData = {
+            labels: x,
+            datasets: [{
+                label: 'Movies Watched',
+                data: y,
+                borderColor: '#36a2eb',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                fill: true,
+                tension: 0.1
+            }]
+             };
+            new Chart(document.getElementById('watchHistoryChart'), {
+            type: 'line',
+            data: watchHistoryData,
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return `Movies: ${tooltipItem.raw}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+}
+
+
+function genres_show(x,y){
+    const genrePreferenceData = {
+    labels: x,
+    datasets: [{
+        label: 'Genres',
+        data: y,
+        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff']
+    }]
+    };
+
+        new Chart(document.getElementById('genrePreferenceChart'), {
+            type: 'pie',
+            data: genrePreferenceData,
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return `${tooltipItem.label}: ${tooltipItem.raw}%`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+}
+
+
+function heatmap_show(x,y){
+
+    // Time Spent Watching Movies (Heatmap simulation using Bar Chart - Limited visualization)
+    const timeSpentData = {
+    labels: x,
+    datasets: [{
+        label: 'Movies Watched on Monday',
+        data: y,
+        backgroundColor: '#36a2eb'
+    }]
+        };
+
+        new Chart(document.getElementById('timeSpentChart'), {
+            type: 'bar',
+            data: timeSpentData,
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return `Movies: ${tooltipItem.raw}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+}
+
+
+function rating_distributation(x,y){
+
+    // Movie Ratings Distribution (Histogram)
+const ratingsDistributionData = {
+            labels: x,
+            datasets: [{
+                label: 'Number of Movies',
+                data: y,
+                backgroundColor: '#ff6384'
+            }]
+        };
+
+        new Chart(document.getElementById('ratingsDistributionChart'), {
+            type: 'bar',
+            data: ratingsDistributionData,
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return `Movies: ${tooltipItem.raw}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+}
+
+async function plot_chart(){
+	var data = {}
+	const response = await fetch('/charts/user_data/', {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+		}
+	});
+	if (response.ok) {
+		const jsonResponse = await response.json();
+        watchhistroy(jsonResponse.watch_histroy.x,jsonResponse.watch_histroy.y);
+        genres_show(jsonResponse.genres_data.x,jsonResponse.genres_data.y);
+        heatmap_show(jsonResponse.time_spent.x,jsonResponse.time_spent.y);
+        rating_distributation(jsonResponse.rating.x,jsonResponse.rating.y);
+		console.log(jsonResponse);
+	}
+}
+
+plot_chart();
+
+</script>
+{% endblock %}
