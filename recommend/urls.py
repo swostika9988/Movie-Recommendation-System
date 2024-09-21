@@ -19,4 +19,9 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('movie/<id>',views.movie,name='movie'),
     path('dashboard',views.dashboard,name='dashboard'),
+    path('dashboard/watch_history',views.watch_history,name='watch_history'),
+    path('dashboard/rating_review',views.rating_movie,name='rating_movie'),
+    path('dashboard/time_spend',views.time_spent,name='time_spent'),
+    path('dasbhoard/watched_genres',views.watch_genres,name='watch_genres'),
+    path('logout',views.logout,name='logout'),
 ]

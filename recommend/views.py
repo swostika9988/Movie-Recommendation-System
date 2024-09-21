@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse,redirect
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login as auth_login
 from .models import User,Movies,Genres,Reviews
@@ -7,8 +7,12 @@ from django.db.models import Q
 from .utils import get_embed_url
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
-
+import datetime
+from django.db.models import Sum,Count
+from .models import (
+    WatchHistory,
+    Reviews
+)
 import random
 
 
@@ -112,6 +116,13 @@ def signup(request):
         signup = signupform.save()
         return JsonResponse(model_to_dict(signup))
     
+def logout(request):
+    try:
+        del request.session['user']
+    except:
+        pass
+    return redirect('index')
+    
 def movie(request,id):
     moives = Movies.objects.get(id=id)
     genres = moives.genres.all()
@@ -138,3 +149,58 @@ def movie(request,id):
 def dashboard(request):
     template_name = 'dashboard/dashboard.html'
     return render(request,template_name)
+
+def watch_history(request):
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    history = WatchHistory.objects.filter(user=user)
+    template_name = 'dashboard/watch_history.html'
+    context = {
+        'history': history
+    }
+    return render(request,template_name,context)
+
+def time_spent(request):
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    history = WatchHistory.objects.filter(user=user)
+    template_name = 'dashboard/time_spent.html'
+    context = {
+        'history': history
+    }
+    return render(request,template_name,context)
+
+def rating_movie(request):
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    reviews = Reviews.objects.filter(user=user)
+    template_name = 'dashboard/rating.html'
+    context = {
+        'history': reviews
+    }
+    return render(request,template_name,context)
+
+def watch_genres(request):
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    today = datetime.date.today()
+    last_30_days = today - datetime.timedelta(days=30)
+    # Get all watched movies by the user in the last 30 days
+    watched_movies = WatchHistory.objects.filter(
+        user=user,
+        created_at__date__gte=last_30_days
+    ).values('movie_id').distinct()
+
+    # Get genres for those movies and count how many times each genre was watched
+    genre_counts = Genres.objects.filter(
+        movies__id__in=watched_movies
+    ).annotate(
+        num_movies_watched=Count('movies')
+    ).order_by('-num_movies_watched')
+    template_name = 'dashboard/watch_genres.html'
+    context = {
+        'history': genre_counts
+    }
+    return render(request,template_name,context)
+
+

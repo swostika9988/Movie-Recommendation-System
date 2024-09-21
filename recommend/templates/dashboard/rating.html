@@ -1,0 +1,65 @@
+
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+    <!-- Main Content -->
+    <div id="content">
+
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Your Rated Movies</h1>
+            
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Movies Lists</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Poster</th>
+                                    <th>Title</th>
+                                    <th>Release Date</th>
+                                    <th>Date and TIme</th>
+                                    <th>review</th>
+                                    <th>rating</th>
+                                </tr>
+                            </thead>
+                          
+                            <tbody>
+                                {% for item in history %}
+                                <tr>
+                                    <td><img src="{{item.movie.poster_url}}" width="100px" height="100px"></td>
+                                    <td>{{item.movie.title}}</td>
+                                    <td>{{item.movie.release_date}}</td>
+                                    <td>{{item.created_at|date:"F j, Y, g:i a"}}</td>
+                                    <td>{{item.review}}</td>
+                                    <td>{{item.rating}}</td>
+                                    
+                                </tr>
+                                {% endfor %}
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+{% endblock %}
