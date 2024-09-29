@@ -23,27 +23,28 @@ import random
 
 def index(request):
     template_name = 'index.html'
-    movie_list = Movies.objects.exclude(Q(poster_url__isnull=True) | Q(poster_url='')).filter(tag='trending').order_by('-release_date')
+    # template_name = 'demo.html'
+    movie_list = Movies.objects.exclude(Q(poster_url__isnull=True) | Q(poster_url='')).filter(tag='trending').order_by('-release_date')[:10]
     popular_movies = Movies.objects.filter(tag='popular').order_by('-popularity')[:10]
     coming_soon_movies = Movies.objects.filter(tag='coming_soon').order_by('release_date')[:10]
     top_rated_movies = Movies.objects.filter(tag='top_rated').order_by('-rating')[:10]
-    most_reviewed_movies = Movies.objects.filter(tag='most_reviewed')[:15]
+    most_reviewed_movies = Movies.objects.filter(tag='most_reviewed')[:10]
 
-    # get all record of movies having trailer_url
+    # get all record of movies having movie_urls
     # find the section of trailer in index.html
     # use foor loop to list all the trailers in traier section of index.html
-    trailer_urls = Movies.objects.exclude(Q(trailer_url__isnull=True) | Q(trailer_url='')).order_by('-release_date')
+    trailer_urls = Movies.objects.exclude(Q(trailer_url__isnull=True) | Q(trailer_url='')).order_by('-release_date')[:10]
     for movie in trailer_urls:
         movie.trailer_url = get_embed_url(movie.trailer_url)
         
  
     context = {
-        'movie_lists': movie_list[:15],
+        'movie_lists': movie_list,
         'popular_movies': popular_movies,
         'coming_soon_movies': coming_soon_movies,
         'top_rated_movies': top_rated_movies,
         'most_reviewed_movies': most_reviewed_movies, # 15
-        'movie_urls': trailer_urls[:30]
+        'movie_urls': trailer_urls
         
     }
     return render(request,template_name,context)
@@ -53,13 +54,20 @@ def index(request):
 def search(request):
     query = request.GET.get('query')
     genre_filter = request.GET.get('genre')  # Get genre filter if applied
-    movies = Movies.objects.filter(Q(poster_url__isnull=False) & ~Q(poster_url=''))
-
+    genres_list = request.GET.getlist('movie_list',None)
+    movies_obj = Movies.objects.exclude(poster_url__isnull=True).exclude(trailer_url__isnull=True)
     # Get all movie data, filter by genre if provided
     if genre_filter:
-        movies = Movies.objects.filter(genres__name__icontains=genre_filter)[:24]
+        movies = movies_obj.filter(genres__name__icontains=genre_filter)[:24]
+    elif genres_list:
+        print(f'genres lsit : {genres_list}')
+        q = Q()
+        for genre in genres_list:
+            if isinstance(genre, str) and genre.strip():
+                q |= Q(genres__name__contains=genre)
+        movies = movies_obj.filter(q).distinct()[:24]
     else:
-        movies = Movies.objects.all()
+        movies = movies_obj
         # Get all movie data
     titles = [movie.title for movie in movies]
     genres = [", ".join([genre.name for genre in movie.genres.all()]) for movie in movies]
@@ -95,7 +103,7 @@ def search(request):
     else:
         recommended_movies = movies
 
-    return render(request, 'search.html', {'movies': recommended_movies, 'query': query, 'genres_list': unique_genres, 'genre_filter': genre_filter })
+    return render(request, 'search.html', {'movies': recommended_movies,'total_movie': len(recommended_movies), 'query': query, 'genres_list': unique_genres, 'genre_filter': genre_filter })
     
     
 def login(request):

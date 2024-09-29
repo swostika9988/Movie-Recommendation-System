@@ -1,6 +1,6 @@
 {% load static %}
-
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html lang="en">
 
 
 <head>
@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <style>
         input.lowercase {
@@ -33,11 +33,8 @@
 
 </head>
 <body>
-<!--preloading-->
-
-<!--end of preloading-->
 <!--login form popup-->
-<div class="login-wrapper" id="login-content">
+<div class="login-wrapper" id="login-content" style="display: none;">
     <div class="login-content">
         <a href="#" class="close">x</a>
         <h3>Login</h3>
@@ -77,32 +74,25 @@
 </div>
 <!--end of login form popup-->
 <!--signup form popup-->
-<div class="login-wrapper"  id="signup-content">
+<div class="login-wrapper"  id="signup-content" style="display: none;">
     <div class="login-content">
         <a href="#" class="close">x</a>
         <h3>sign up</h3>
         <div  id="signupform">
             <div class="row">
-				<label for="username-2">
-					Username:
-					<input type="text" class="lowercase" name="username" id="username" placeholder="" required="required"
-					pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$"
-
-						   title="Username must be at least 8 characters long." />
-				</label>
-			</div>
-			
-			<div class="row">
-				<label for="email-2">
-					Your email:
-					<input type="text" class="lowercase" name="email" id="email" placeholder="" required="required"
-					pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"   title="Enter a valid email" />
-				</label>
-			</div>
-			
-			
-			
-			
+                 <label for="username-2">
+                    Username:
+                    <input type="text" autocapitalize="none" autocorrect="off" spellcheck="false" name="username" id="username" pattern="^[a-zA-Z]{3,8}$" placeholder=" "  required="required"  title="Username must contain both uper and lowercase letters."/>
+					
+                </label>
+            </div>
+           
+            <div class="row">
+                <label for="email-2">
+                    your email:
+                    <input type="text" class="lowercase" name="email" id="email" placeholder="" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"  required="required" />
+                </label>
+            </div>
              <div class="row">
                 <label for="password-2">
                     Password:
@@ -144,7 +134,7 @@
 							<span></span>
 						</div>
 				    </div>
-				    <a href="index-2.html"><img class="logo" src="{% static 'images/logo1.png' %}" alt="" width="119" height="58"></a>
+				    <a href=""><img class="logo" src="{% static 'images/logo1.png' %}" alt="" width="119" height="58"></a>
 			    </div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
@@ -293,9 +283,38 @@
     return cookieValue;
 }
 
+function validate_field(element_id,is_lower=false){
+	// Create a regex object using the pattern
+	var value = $(element_id).val();
+	if(is_lower){
+		value = value.toLowerCase();
+	}
+	var pattern = $(element_id).attr('pattern');
+	if(pattern){
+		const regex = new RegExp(pattern);
+      // Test the value against the regex
+		const isValid = regex.test(value);
+		return isValid;
+	}
+	return true;
+}
+
 async function signup(event){
-	username = $('#username').val().toLowerCase();
-	email = $('#email').val().toLowerCase();
+	var username_id = '#username';
+	var email_id = '#email';
+	var password_id = '#password';
+	if(validate_field(username_id)){
+		var username = $(username_id).val().toLowerCase();
+	}else{
+		alert('User must valid')
+		return;
+	}
+	if(validate_field(email_id,true)){
+		var email = $(email_id).val().toLowerCase();
+	}else{
+		alert('Email is not valid');
+		return;
+	}
 	password=  $('#password').val().toLowerCase();
 	repassword = $('#repassword').val().toLowerCase();
 	const csrftoken = getCookie('csrftoken'); // Function to get CSRF token from cookies
@@ -389,6 +408,7 @@ async function logout(event){
 
 function get_singupform(event){
 	// this will close the login form
+	$('#signup-content').css({'display': ''});
 	var overlay = $(".overlay");
 	overlay.removeClass("openform");
 	// now open singup form 

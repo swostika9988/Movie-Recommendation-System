@@ -1,18 +1,5 @@
 //preloading for page
-$(window).on('load', function() { // makes sure the whole site is loaded 
-	var status = $('#status');
-	var preloader = $('#preloader');
-	var body = $('body');
-	status.fadeOut(); // will first fade out the loading animation 
-	preloader.delay(0).fadeOut('fast'); // will fade out the white DIV that covers the website. 
-	body.delay(0).css({'overflow':'visible'});
-	var vidDefer = document.getElementsByTagName('iframe');
-	for (var i=0; i<vidDefer.length; i++) {
-		if(vidDefer[i].getAttribute('data-src')) {
-			vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
-		} 
-	}
-})
+
 $(function(){
 	'use strict';
 	// js for dropdown menu
@@ -453,6 +440,8 @@ $(function(){
 	});
 	//pop up for login form
     loginLink.on('click', function(event){
+		$(loginct).css({'display': ''});
+		$(signupct).css({'display': ''});
     	event.preventDefault();
     	loginct.parents(overlay).addClass("openform");
 		$(document).on('click', function(e){
@@ -469,6 +458,8 @@ $(function(){
     });
     //pop up for signup form
     signupLink.on('click', function(event){
+		$(signupct).css({'display': ''});
+		$(loginct).css({'display': ''});
     	event.preventDefault();
     	signupct.parents(overlay).addClass("openform");
 		$(document).on('click', function(e){

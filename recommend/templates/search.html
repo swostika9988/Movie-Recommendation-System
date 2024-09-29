@@ -25,7 +25,7 @@
 		<div class="row ipad-width">
 			<div class="col-md-8 col-sm-12 col-xs-12">
 				<div class="topbar-filter">
-					<p>Found <span>1,608 movies</span> in total</p>
+					<p>Found <span>{{total_movie}} movies</span> in total</p>
 					<label>Sort by:</label>
 					<select>
 						<option value="popularity">Popularity Descending</option>
@@ -78,15 +78,13 @@
 				<div class="sidebar">
 					<div class="searh-form">
 						<h4 class="sb-title">Search for movie</h4>
-						<form class="form-style-1" action="#">
+						<form class="form-style-1" action="{% url 'search' %}" method="get">
 							<div class="row">
-								
 								<div class="col-md-12 form-it">
 									<label>Genres & Subgenres</label>
 									<div class="group-ip">
 										<select
-											name="skills" multiple="" class="ui fluid dropdown">
-                                            
+											name="movie_list" multiple="" class="ui fluid dropdown">
 											<option value="">Enter to filter genres</option>
                                             {% for genres in genres_list %}
 											<option value="{{genres}}"> {{genres}}</option>
@@ -94,9 +92,6 @@
 										</select>
 									</div>	
 								</div>
-								
-								
-										
 									
 								</div>
 								<div class="col-md-12 ">
@@ -105,7 +100,6 @@
 							</div>
 						</form>
 					</div>
-					
 					
 				</div>
 			</div>

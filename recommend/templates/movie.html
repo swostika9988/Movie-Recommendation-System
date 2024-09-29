@@ -26,8 +26,19 @@
 					<img src="{{movie.poster_url}}" alt="">
 					<div class="movie-btn">	
 						<div class="btn-transform transform-vertical red">
-							<div><a href="#" onclick="watch_movie(this);" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
-							<div><a onclick="watch_movie(this);" movie_id="{{movie.id}}" href="https://www.youtube.com/embed/o-0hcF97wy0" class="item item-2 redbtn fancybox-media hvr-grow"><i onclick="watch_movie(this);" class="ion-play"></i></a></div>
+							<div><a href="#" onclick="watch_movie(this);" trailer_url = '{{movie.trailer_url}}' class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
+							
+							{% if movie.trailer_url %}
+								{% with movie.trailer_url|slice:"32:" as video_id %}
+									<div>
+										<a onclick="watch_movie(this);" movie_id="{{ movie.id }}" href="https://www.youtube.com/embed/{{ video_id }}" class="item item-2 redbtn fancybox-media hvr-grow">
+											<i onclick="watch_movie(this);" class="ion-play"></i>
+										</a>
+									</div>
+								{% endwith %}
+							{% else %}
+							<div><a onclick="watch_movie(this);" movie_id="{{movie.id}}"  href="https://www.youtube.com/embed/Z0Qw_Nz_GaU" class="item item-2 redbtn fancybox-media hvr-grow"><i onclick="watch_movie(this);" class="ion-play"></i></a></div>
+							{% endif %}
 						</div>
 						<!-- <div class="btn-transform transform-vertical">
 							<div><a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a></div>
