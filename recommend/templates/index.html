@@ -1017,27 +1017,31 @@
 				<div class="videos">
 					<div class="slider-for-2 video-ft">
 						{% for movie in movie_urls %}
-						<div>
-							<iframe class="item-video" src="{{ movie.trailer_url }}" frameborder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen></iframe>
-						</div>
+							{% if movie.trailer_url and movie.poster_url and movie.trailer_url != '' and movie.poster_url != '' %}
+								<div>
+									<iframe class="item-video" src="{{ movie.trailer_url }}" frameborder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+										allowfullscreen></iframe>
+								</div>
+							{% endif %}
 						{% empty %}
-						<p>No trailers available.</p>
+							<p>No trailers available.</p>
 						{% endfor %}
 					</div>
+
 					<div class="slider-nav-2 thumb-ft">
 						{% for movie in movie_urls %}
-						<div class="item">
-							<div class="trailer-img">
-								<img src="{{ movie.poster_url }}" alt="{{ movie.title }}" width="100" height="56">
-							</div>
-							<div class="trailer-infor">
-								<h4 class="desc">{{ movie.title }}</h4>
-								<p>2:30</p> <!-- Replace with dynamic duration if available -->
-							</div>
-						</div>
-
+							{% if movie.trailer_url and movie.poster_url and movie.trailer_url != '' and movie.poster_url != '' %}
+								<div class="item">
+									<div class="trailer-img">
+										<img src="{{ movie.poster_url }}" alt="{{ movie.title }}" width="100" height="56">
+									</div>
+									<div class="trailer-infor">
+										<h4 class="desc">{{ movie.title }}</h4>
+										<p>2:30</p> <!-- Replace with dynamic duration if available -->
+									</div>
+								</div>
+							{% endif %}
 						{% endfor %}
 					</div>
 				</div>
@@ -1045,6 +1049,7 @@
 		</div>
 	</div>
 </div>
+
 
 <!-- latest new v1 section-->
 

@@ -53,7 +53,8 @@ def index(request):
 def search(request):
     query = request.GET.get('query')
     genre_filter = request.GET.get('genre')  # Get genre filter if applied
-    
+    movies = Movies.objects.filter(Q(poster_url__isnull=False) & ~Q(poster_url=''))
+
     # Get all movie data, filter by genre if provided
     if genre_filter:
         movies = Movies.objects.filter(genres__name__icontains=genre_filter)[:24]

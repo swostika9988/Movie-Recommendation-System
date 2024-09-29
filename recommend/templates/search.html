@@ -39,19 +39,22 @@
 					<a  href="moviegrid.html" class="grid"><i class="ion-grid active"></i></a>
 				</div>
 				<div class="flex-wrap-movielist">
-                    {% for movie in movies %}
+					{% for movie in movies %}
+						<!-- Only show movies with a poster -->
+						{% if movie.poster_url %}
 						<div class="movie-item-style-2 movie-item-style-1">
-							<img src="{{movie.poster_url}}" alt="">
+							<img src="{{ movie.poster_url }}" alt="{{ movie.title }} poster">
 							<div class="hvr-inner">
-	            				<a  href="{% url 'movie' id=movie.id %}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
-	            			</div>
+								<a href="{% url 'movie' id=movie.id %}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+							</div>
 							<div class="mv-item-infor">
-								<h6><a href="{% url 'movie' id=movie.id %}">{{movie.title}}</a></h6>
+								<h6><a href="{% url 'movie' id=movie.id %}">{{ movie.title }}</a></h6>
 							</div>
 						</div>
-                        {% endfor %}					
-		
-				</div>		
+						{% endif %}
+					{% endfor %}
+				</div>
+					
 				<div class="topbar-filter">
 					<label>Movies per page:</label>
 					<select>
@@ -102,22 +105,8 @@
 							</div>
 						</form>
 					</div>
-					<div class="ads">
-						<img src="images/uploads/ads1.png" alt="">
-					</div>
-					<div class="sb-facebook sb-it">
-						<h4 class="sb-title">Find us on Facebook</h4>
-						<iframe src="#" data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fhaintheme%2F%3Ffref%3Dts&tabs=timeline&width=340&height=315px&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"  height="315" style="width:100%;border:none;overflow:hidden" ></iframe>
-					</div>
-					<div class="sb-twitter sb-it">
-						<h4 class="sb-title">Tweet to us</h4>
-						<div class="slick-tw">
-							<div class="tweet item" id="599202861751410688">
-							</div>
-							<div class="tweet item" id="297462728598122498">
-							</div>
-						</div>					
-					</div>
+					
+					
 				</div>
 			</div>
 		</div>

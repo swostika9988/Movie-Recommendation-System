@@ -2,8 +2,6 @@
 
 <html lang="en" class="no-js">
 
-<!-- password pattern  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" -->
-<!--  email pattern   pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" -->
 
 <head>
 	<!-- Basic need -->
@@ -36,13 +34,7 @@
 </head>
 <body>
 <!--preloading-->
-<!-- <div id="preloader">
-    <img class="logo" src="images/logo1.png" alt="" width="119" height="58">
-    <div id="status">
-        <span></span>
-        <span></span>
-    </div>
-</div> -->
+
 <!--end of preloading-->
 <!--login form popup-->
 <div class="login-wrapper" id="login-content">
@@ -91,23 +83,30 @@
         <h3>sign up</h3>
         <div  id="signupform">
             <div class="row">
-                 <label for="username-2">
-                    Username:
-                    <input type="text" class="lowercase" name="username" id="username" placeholder=" "  required="required" pattern="^(?=.{8,}$)(?=.*[A-Z])(?=.*[a-z]).*$"  title="Username must contain both uper and lowercase letters."/>
-					
-                </label>
-            </div>
-           
-            <div class="row">
-                <label for="email-2">
-                    your email:
-                    <input type="text" class="lowercase" name="email" id="email" placeholder=""  required="required" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" />
-                </label>
-            </div>
+				<label for="username-2">
+					Username:
+					<input type="text" class="lowercase" name="username" id="username" placeholder="" required="required"
+					pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$"
+
+						   title="Username must be at least 8 characters long." />
+				</label>
+			</div>
+			
+			<div class="row">
+				<label for="email-2">
+					Your email:
+					<input type="text" class="lowercase" name="email" id="email" placeholder="" required="required"
+					pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"   title="Enter a valid email" />
+				</label>
+			</div>
+			
+			
+			
+			
              <div class="row">
                 <label for="password-2">
                     Password:
-                    <input type="text" class="lowercase" name="password" id="password" placeholder=""  required="required" />
+                    <input type="text" class="lowercase" name="password" id="password" placeholder=""  required="required"  />
                 </label>
             </div>
              <div class="row">
@@ -119,7 +118,7 @@
            <div class="row">
              <button type="button" onclick="signup(this);">sign up</button>
            </div>
-		   <div class="row">
+		   <div class="row" style="text-align: center;">
         	<p>Or</p>
             <div class="social-btn-2">
             	<button class="button" onclick="get_loginform(this);">Sigin Now</button>
