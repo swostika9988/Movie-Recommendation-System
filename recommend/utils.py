@@ -6,3 +6,6 @@ def get_embed_url(url):
         video_id = url.split('youtu.be/')[-1]
         return f"https://www.youtube.com/embed/{video_id}"
     return url  # Handle other cases if necessary
+
+
+

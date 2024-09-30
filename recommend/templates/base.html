@@ -473,6 +473,8 @@ function get_loginform(event){
 	$(document).ready(function(){
 		// Call the async function using an IIFE
 		(async function() {
+				$('#login-content').css({'display':''});
+				$('#signup-content').css({'display':''});
                 await check_login();
         })();
 	})

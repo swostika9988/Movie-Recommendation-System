@@ -13,38 +13,120 @@ from .models import (
     WatchHistory,
     Reviews
 )
+from django.db.models import Avg
 import random
-
-
+from sklearn.feature_extraction.text import CountVectorizer
+import numpy as np
 
 
 # Create your views here.
+
+# ************************* Content base filter - genres and actor ****************
+
+def content_based_recommendation(movie_id):
+    # Get the movie the user is currently viewing
+    movie = Movies.objects.get(id=movie_id)
+
+    # Combine relevant features (genres, actors) to form the "content" of the movie
+    def get_content(movie):
+        genres = [item.name for item in movie.genres.all()]
+        genres = ','.join(genres)
+        return f"{genres} {movie.actors}"
+
+    # Get all movies to compare with
+    all_movies = Movies.objects.exclude(poster_url__isnull=True).exclude(trailer_url__isnull=True)
+
+    # Prepare data for similarity calculation
+    movies_content = [get_content(m) for m in all_movies]
+    
+    # Convert text to matrix of token counts
+    vectorizer = CountVectorizer().fit_transform(movies_content)
+    
+    # Calculate cosine similarity between movies
+    cosine_sim = cosine_similarity(vectorizer)
+    
+    # Find the index of the current movie
+    movie_idx = list(all_movies).index(movie)
+    
+    # Get similarity scores for this movie
+    sim_scores = list(enumerate(cosine_sim[movie_idx]))
+    
+    # Sort by similarity score and get top 10 movies
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)[1:11]
+    
+    # Get the movie objects for the recommendations
+    recommended_movies = [all_movies[i[0]] for i in sim_scores]
+    return recommended_movies
+
+# ************************** Collabrative Filter ***********************
+
+def collaborative_filtering(user):
+    # Get the current user's reviews
+    current_user_reviews = Reviews.objects.filter(user=user)
+
+    # Get all other users' reviews
+    all_reviews = Reviews.objects.exclude(user=user)
+    
+    # Create a dictionary to store user similarities
+    user_similarity = {}
+
+    # Compare current user's reviews with other users
+    for review in current_user_reviews:
+        movie_reviews = all_reviews.filter(movie_id=review.movie.id)
+        for other_review in movie_reviews:
+            if other_review.user_id not in user_similarity:
+                user_similarity[other_review.user_id] = []
+            # Calculate similarity based on rating difference
+            user_similarity[other_review.user_id].append(
+                abs(review.rating - other_review.rating)
+            )
+    
+    # Calculate average similarity score for each user
+    user_similarity = {k: np.mean(v) for k, v in user_similarity.items()}
+
+    # Get the top N most similar users (lowest difference in ratings)
+    similar_users = sorted(user_similarity, key=user_similarity.get)[:5]
+    
+    # Recommend movies based on these similar users' reviews
+    similar_user_reviews = Reviews.objects.filter(user_id__in=similar_users).exclude(movie_id__in=current_user_reviews.values('movie_id'))
+    # Get movies that have high ratings from similar users
+    similar_reviews = similar_user_reviews.values('movie_id').annotate(average_rating=Avg('rating')).order_by('-average_rating')[:10]
+    # Get all movie ids 
+    movie_ids = [item['movie_id'] for item in similar_reviews]
+    recommended_movies = Movies.objects.filter(id__in=movie_ids)
+    return recommended_movies
+
 
 
 def index(request):
     template_name = 'index.html'
     # template_name = 'demo.html'
-    movie_list = Movies.objects.exclude(Q(poster_url__isnull=True) | Q(poster_url='')).filter(tag='trending').order_by('-release_date')[:10]
-    popular_movies = Movies.objects.filter(tag='popular').order_by('-popularity')[:10]
-    coming_soon_movies = Movies.objects.filter(tag='coming_soon').order_by('release_date')[:10]
-    top_rated_movies = Movies.objects.filter(tag='top_rated').order_by('-rating')[:10]
-    most_reviewed_movies = Movies.objects.filter(tag='most_reviewed')[:10]
-
+    movies_obj = Movies.objects.exclude(poster_url__isnull=True).exclude(trailer_url__isnull=True).order_by('-release_date')
+    movie_list = movies_obj[:10]
+    popular_movies = movies_obj.filter(tag='popular').order_by('-popularity')[:10]
+    coming_soon_movies = movies_obj.filter(tag='coming_soon').order_by('release_date')[:10]
+    top_rated_movies = movies_obj.filter(tag='top_rated').order_by('-rating')[:10]
+    most_reviewed_movies = movies_obj.filter(tag='most_reviewed')[:10]
+    if request.session.has_key('user'):
+        username = request.session['user']
+        user = User.objects.get(username=username)
+        collaborative_content = collaborative_filtering(user=user)
+    else:
+        collaborative_content = []
     # get all record of movies having movie_urls
     # find the section of trailer in index.html
     # use foor loop to list all the trailers in traier section of index.html
     trailer_urls = Movies.objects.exclude(Q(trailer_url__isnull=True) | Q(trailer_url='')).order_by('-release_date')[:10]
     for movie in trailer_urls:
         movie.trailer_url = get_embed_url(movie.trailer_url)
-        
- 
     context = {
         'movie_lists': movie_list,
         'popular_movies': popular_movies,
         'coming_soon_movies': coming_soon_movies,
         'top_rated_movies': top_rated_movies,
         'most_reviewed_movies': most_reviewed_movies, # 15
-        'movie_urls': trailer_urls
+        'movie_urls': trailer_urls,
+        'collaborative_content': collaborative_content
         
     }
     return render(request,template_name,context)
@@ -138,10 +220,11 @@ def movie(request,id):
     reviews = moives.reviews_set.all().order_by('-id')
     username = request.session['user']
     user = User.objects.get(username=username)
-    related_movie = []
-    for gen in genres:
-        related_movie.extend(gen.movies.exclude(Q(poster_url__isnull=True) | Q(poster_url='')).filter(tag='trending').order_by('-release_date')[:10])
-    related_movie =  random.sample(related_movie, 10)
+    related_movie = content_based_recommendation(id)
+    # related_movie = []
+    # for gen in genres:
+    #     related_movie.extend(gen.movies.exclude(Q(poster_url__isnull=True) | Q(poster_url='')).filter(tag='trending').order_by('-release_date')[:10])
+    # related_movie =  random.sample(related_movie, 10)
     context = {
         'movie': moives,
         'related_movies': related_movie,
@@ -150,6 +233,11 @@ def movie(request,id):
         'total_review': len(reviews)
     }
     return render(request,'movie.html',context)
+
+
+
+
+
 
 
 # ************************** User Dashboard ******************************
