@@ -338,7 +338,7 @@ def movie_listing(request,id=None):
     template_name = 'dashboard/movie_list.html'
     # delete movie and return the rest of movie
     if request.method in ['post','POST'] and id:
-        res = Movies.objects.get(ikd=id)
+        res = Movies.objects.get(id=int(id))
         res.delete()
     
     movies =  Movies.objects.exclude(poster_url__isnull=True).exclude(trailer_url__isnull=True).exclude(rating=0).order_by('-release_date')[:1000]
