@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.contrib.auth.hashers import check_password
 from .models import User,Reviews,Movies,WatchHistory,Genres
-from .serializers import UserSerializer,ReviewsSerializer
+from .serializers import UserSerializer,ReviewsSerializer,MovieSerializer
 from django.template.loader import render_to_string
 from django.db.models import Count
 import datetime
@@ -200,4 +200,8 @@ class UserDashboardChartViewsets(viewsets.GenericViewSet):
         }
         return Response(context,status=200)
 
+
+class MovieViewSet(viewsets.ModelViewSet):
+    queryset = Movies.objects.all()
+    serializer_class = MovieSerializer
 

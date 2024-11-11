@@ -384,7 +384,8 @@ async function user_login(event){
 
         } else {
             const errorResponse = await response.json();
-            console.error('Registration failed:', errorResponse);
+            console.log('Registration failed:', errorResponse);
+			alert('Registration failed:' + errorResponse.detail);
         }
 
 } 

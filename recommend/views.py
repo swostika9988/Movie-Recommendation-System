@@ -3,21 +3,24 @@ from django.http import JsonResponse
 from django.contrib.auth import authenticate, login as auth_login
 from .models import User,Movies,Genres,Reviews
 from django.forms.models import model_to_dict
+from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from .utils import get_embed_url
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import datetime
 from django.db.models import Sum,Count
+from django.contrib import messages
 from .models import (
     WatchHistory,
-    Reviews
+    Reviews,
+    MOVIE_TAG
 )
 from django.db.models import Avg
 import random
 from sklearn.feature_extraction.text import CountVectorizer
 import numpy as np
-
+from .serializers import MovieSerializer
 
 # Create your views here.
 
@@ -301,3 +304,45 @@ def watch_genres(request):
     return render(request,template_name,context)
 
 
+def add_edit_movie(request,id=None):
+    template_name = 'dashboard/movie.html'
+    method = request.method
+    movie = None
+    serializer = None
+    if id and method in ['post','POST']:
+        movie_instance = get_object_or_404(Movies, id=id)
+        serializer = MovieSerializer(movie_instance, data=request.POST)
+    elif method in ['post','POST']:
+        serializer = MovieSerializer(data=request.POST)
+
+    if serializer:
+        if serializer.is_valid():
+            movie = serializer.save()
+            messages.success(request, 'Movie saved successfully!')
+        else:
+            # Display an error message with the validation errors
+            messages.error(request, f'Failed to save movie. Errors: {serializer.errors}')
+    if id:
+        movie = Movies.objects.get(id=id)
+    genres = Genres.objects.all()
+    context = {
+        'genres': genres,
+        'MOVIE_TAG': MOVIE_TAG,
+        'movie': movie
+
+    }
+    return render(request,template_name,context)
+
+
+def movie_listing(request,id=None):
+    template_name = 'dashboard/movie_list.html'
+    # delete movie and return the rest of movie
+    if request.method in ['post','POST'] and id:
+        res = Movies.objects.get(ikd=id)
+        res.delete()
+    
+    movies =  Movies.objects.exclude(poster_url__isnull=True).exclude(trailer_url__isnull=True).exclude(rating=0).order_by('-release_date')[:1000]
+    context = {
+        'movies': movies
+    }
+    return render(request,template_name,context)

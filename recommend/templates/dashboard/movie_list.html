@@ -1,0 +1,40 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Movies List</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+            <th>Runtime</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for movie in movies %}
+            <tr>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.release_date }}</td>
+                <td>{{ movie.rating }}</td>
+                <td>{{ movie.runtime }}</td>
+                <td>
+                    <a href="{% url 'add_edit_movie' movie.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{% url 'movie_listing' movie.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
